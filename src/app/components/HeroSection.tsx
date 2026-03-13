@@ -23,32 +23,60 @@ export function HeroSection() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.15
+                }
+              }
+            }}
           >
-            <div className="inline-block bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
+            <motion.div 
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 }
+              }}
+              className="inline-block bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6"
+            >
               <span className="text-[#F97316]" style={{ fontWeight: 600 }}>🔥 Hot Deals Available</span>
-            </div>
+            </motion.div>
 
-            <h1 className="text-white mb-4" style={{ fontSize: '2.5rem', fontWeight: 700, lineHeight: '1.2' }}>
+            <motion.h1 
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 }
+              }}
+              className="text-white mb-4" 
+              style={{ fontSize: '2.5rem', fontWeight: 700, lineHeight: '1.2' }}
+            >
               Latest Smartphones at <span className="text-[#F97316]">Karthi Mobiles</span>
-            </h1>
+            </motion.h1>
 
             <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 }
+              }}
               className="text-blue-100 mb-8"
               style={{ fontSize: '1.125rem', lineHeight: '1.6' }}
             >
               Explore the newest models from top brands with exclusive offers and authentic warranty
             </motion.p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            <motion.div 
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 }
+              }}
+              className="flex flex-col sm:flex-row gap-4"
+            >
               <button
                 onClick={scrollToProducts}
-                className="inline-flex items-center justify-center gap-2 bg-[#F97316] hover:bg-[#EA580C] text-white px-8 py-4 rounded-xl transition-all shadow-lg hover:shadow-xl hover:scale-105"
+                className="inline-flex items-center justify-center gap-2 bg-[#F97316] hover:bg-[#EA580C] text-white px-8 py-4 rounded-xl transition-all shadow-lg hover:shadow-xl hover:scale-105 active:scale-95"
               >
                 <span style={{ fontWeight: 600 }}>Shop Now</span>
                 <ChevronRight className="w-5 h-5" />
@@ -59,53 +87,81 @@ export function HeroSection() {
                   const element = document.getElementById('contact');
                   if (element) element.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white px-8 py-4 rounded-xl transition-all border border-white/30"
+                className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white px-8 py-4 rounded-xl transition-all border border-white/30 hover:scale-105 active:scale-95"
               >
                 <span style={{ fontWeight: 600 }}>Contact Us</span>
               </button>
-            </div>
+            </motion.div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-6 mt-12">
-              <div>
-                <div className="text-white mb-1" style={{ fontSize: '1.875rem', fontWeight: 700 }}>500+</div>
-                <div className="text-blue-200" style={{ fontSize: '0.875rem' }}>Products</div>
-              </div>
-              <div>
-                <div className="text-white mb-1" style={{ fontSize: '1.875rem', fontWeight: 700 }}>20+</div>
-                <div className="text-blue-200" style={{ fontSize: '0.875rem' }}>Brands</div>
-              </div>
-              <div>
-                <div className="text-white mb-1" style={{ fontSize: '1.875rem', fontWeight: 700 }}>10K+</div>
-                <div className="text-blue-200" style={{ fontSize: '0.875rem' }}>Happy Customers</div>
-              </div>
-            </div>
+            <motion.div 
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1, transition: { delay: 0.5, staggerChildren: 0.1 } }
+              }}
+              className="grid grid-cols-3 gap-6 mt-12"
+            >
+              {[
+                { label: 'Products', value: '500+' },
+                { label: 'Brands', value: '20+' },
+                { label: 'Happy Customers', value: '10K+' }
+              ].map((stat) => (
+                <motion.div 
+                  key={stat.label}
+                  variants={{
+                    hidden: { opacity: 0, scale: 0.8 },
+                    visible: { opacity: 1, scale: 1 }
+                  }}
+                >
+                  <div className="text-white mb-1" style={{ fontSize: '1.875rem', fontWeight: 700 }}>{stat.value}</div>
+                  <div className="text-blue-200" style={{ fontSize: '0.875rem' }}>{stat.label}</div>
+                </motion.div>
+              ))}
+            </motion.div>
           </motion.div>
 
           {/* Hero Image */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            initial={{ opacity: 0, scale: 0.9, rotate: -2 }}
+            animate={{ 
+              opacity: 1, 
+              scale: 1, 
+              rotate: 0,
+              y: [0, -15, 0],
+            }}
+            transition={{ 
+              opacity: { duration: 0.8 },
+              scale: { duration: 0.8 },
+              rotate: { duration: 0.8 },
+              y: { 
+                duration: 6, 
+                repeat: Infinity, 
+                ease: "easeInOut" 
+              }
+            }}
             className="relative"
           >
-            <div className="relative">
+            <div className="relative group">
               <ImageWithFallback
                 src={heroImage}
                 alt="Latest Smartphones"
-                className="w-full h-auto rounded-2xl shadow-2xl border-4 border-white/20"
+                className="w-full h-auto rounded-2xl shadow-2xl border-4 border-white/20 transition-transform duration-700 group-hover:scale-[1.02]"
               />
 
               {/* Floating Offer Badge */}
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
+                whileHover={{ scale: 1.1, rotate: 5 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="absolute top-8 -right-4 bg-[#F97316] text-white px-6 py-4 rounded-xl shadow-2xl"
+                className="absolute top-8 -right-4 bg-[#F97316] text-white px-6 py-4 rounded-xl shadow-2xl cursor-default"
               >
                 <div style={{ fontSize: '0.875rem', fontWeight: 600 }}>Up to</div>
                 <div style={{ fontSize: '2rem', fontWeight: 700 }}>40% OFF</div>
               </motion.div>
+
+              {/* Decorative elements behind image */}
+              <div className="absolute -inset-4 bg-white/5 blur-2xl rounded-full -z-10 animate-pulse"></div>
             </div>
           </motion.div>
         </div>

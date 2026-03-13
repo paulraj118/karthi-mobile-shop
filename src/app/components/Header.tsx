@@ -26,8 +26,10 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-md' : 'bg-white/95 backdrop-blur-sm'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isScrolled 
+          ? 'bg-white/90 backdrop-blur-md shadow-lg py-1' 
+          : 'bg-white/80 backdrop-blur-sm py-2'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -50,31 +52,35 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
-            <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="text-gray-700 hover:text-[#1E3A8A] transition-colors" style={{ fontWeight: 500 }}>
-              Home
-            </button>
-            <button onClick={() => scrollToSection('products')} className="text-gray-700 hover:text-[#1E3A8A] transition-colors" style={{ fontWeight: 500 }}>
-              Mobiles
-            </button>
-            <button onClick={() => scrollToSection('brands')} className="text-gray-700 hover:text-[#1E3A8A] transition-colors" style={{ fontWeight: 500 }}>
-              Brands
-            </button>
-            <button onClick={() => scrollToSection('offers')} className="text-gray-700 hover:text-[#1E3A8A] transition-colors" style={{ fontWeight: 500 }}>
-              Offers
-            </button>
-            <button onClick={() => scrollToSection('contact')} className="text-gray-700 hover:text-[#1E3A8A] transition-colors" style={{ fontWeight: 500 }}>
-              Contact
-            </button>
+            {[
+              { name: 'Home', id: null },
+              { name: 'Mobiles', id: 'products' },
+              { name: 'Brands', id: 'brands' },
+              { name: 'Offers', id: 'offers' },
+              { name: 'Contact', id: 'contact' }
+            ].map((item) => (
+              <button
+                key={item.name}
+                onClick={() => item.id ? scrollToSection(item.id) : window.scrollTo({ top: 0, behavior: 'smooth' })}
+                className="relative text-gray-700 hover:text-[#1E3A8A] transition-colors group py-2"
+                style={{ fontWeight: 500 }}
+              >
+                {item.name}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#1E3A8A] transition-all duration-300 group-hover:w-full" />
+              </button>
+            ))}
           </nav>
 
           {/* Call Button - Desktop */}
-          <a
+          <motion.a
+            whileHover={{ scale: 1.05, backgroundColor: '#EA580C' }}
+            whileTap={{ scale: 0.95 }}
             href={`tel:${phoneNumber}`}
-            className="hidden md:flex items-center gap-2 bg-[#F97316] text-white px-6 py-2.5 rounded-lg hover:bg-[#EA580C] transition-all shadow-md hover:shadow-lg"
+            className="hidden md:flex items-center gap-2 bg-[#F97316] text-white px-6 py-2.5 rounded-lg transition-all shadow-md hover:shadow-lg"
           >
             <Phone className="w-4 h-4" />
-            <span>Call Now</span>
-          </a>
+            <span style={{ fontWeight: 600 }}>Call Now</span>
+          </motion.a>
 
           {/* Mobile Menu Button */}
           <button

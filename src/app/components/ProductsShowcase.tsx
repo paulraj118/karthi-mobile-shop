@@ -218,11 +218,19 @@ export function ProductsShowcase({ onProductClick, selectedBrand, onClearBrand }
           {filteredProducts.map((product, index) => (
             <motion.div
               key={product.id}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.05 }}
-              className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all overflow-hidden group"
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ 
+                duration: 0.5, 
+                delay: (index % 4) * 0.1,
+                ease: "easeOut"
+              }}
+              whileHover={{ 
+                y: -10,
+                transition: { duration: 0.3 }
+              }}
+              className="bg-white rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 overflow-hidden group border border-gray-100"
             >
               {/* Product Image */}
               <div className="relative overflow-hidden bg-gray-100">
