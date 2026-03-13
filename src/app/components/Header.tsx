@@ -22,7 +22,7 @@ export function Header() {
     }
   };
 
-  const phoneNumber = '8012424220';
+  const phoneNumber = '8925163362';
 
   return (
     <header

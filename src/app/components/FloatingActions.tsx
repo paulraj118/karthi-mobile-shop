@@ -2,8 +2,8 @@ import { Phone, MessageCircle } from 'lucide-react';
 import { motion } from 'motion/react';
 
 export function FloatingActions() {
-  const phoneNumber = '8012424220';
-  const whatsappNumber = '8012424220';
+  const phoneNumber = '8925163362';
+  const whatsappNumber = '9952597145';
 
   const handleCallClick = (e: React.MouseEvent) => {
     e.preventDefault();

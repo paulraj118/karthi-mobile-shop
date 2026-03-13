@@ -12,7 +12,7 @@ interface ProductsShowcaseProps {
 }
 
 export function ProductsShowcase({ onProductClick, selectedBrand, onClearBrand }: ProductsShowcaseProps) {
-  const whatsappNumber = '8012424220';
+  const whatsappNumber = '9952597145';
 
   const handleWhatsAppClick = (product: Product) => {
     const message = `Hi! I'm interested in ${product.name} (${product.specs.ram}/${product.specs.storage}). Price: ₹${product.price.toLocaleString('en-IN')}`;

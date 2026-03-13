@@ -3,9 +3,9 @@ import { X, Phone, MessageCircle, Star, Check, ChevronLeft } from 'lucide-react'
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import type { Product } from './ProductsShowcase';
 import { useState } from 'react';
-import iphone15ProMaxImg from '../../assets/iphone_15_pro_max.png';
-import samsungS24UltraImg from '../../assets/samsung_s24_ultra.png';
-import redmiNote13ProImg from '../../assets/redmi_note_13_pro.png';
+import type { Product } from './ProductsShowcase';
+import { useState } from 'react';
+import { products } from '../data/products';
 
 interface ProductDetailProps {
   product: Product;
@@ -13,46 +13,12 @@ interface ProductDetailProps {
   onViewMore: (product: Product) => void;
 }
 
-const similarProducts: Product[] = [
-  {
-    id: '101',
-    name: 'iPhone 15 Plus',
-    brand: 'Apple',
-    price: 89900,
-    originalPrice: 99900,
-    image: iphone15ProMaxImg,
-    rating: 4.8,
-    specs: { ram: '6GB', storage: '128GB', camera: '48MP' },
-    inStock: true,
-  },
-  {
-    id: '102',
-    name: 'Galaxy S23 FE',
-    brand: 'Samsung',
-    price: 59999,
-    originalPrice: 64999,
-    image: samsungS24UltraImg,
-    rating: 4.6,
-    specs: { ram: '8GB', storage: '128GB', camera: '50MP' },
-    inStock: true,
-  },
-  {
-    id: '103',
-    name: 'OnePlus 11R',
-    brand: 'OnePlus',
-    price: 39999,
-    originalPrice: 44999,
-    image: redmiNote13ProImg,
-    rating: 4.6,
-    specs: { ram: '8GB', storage: '128GB', camera: '50MP' },
-    inStock: true,
-  },
-];
+const similarProducts: Product[] = products.slice(0, 3);
 
 export function ProductDetail({ product, onClose, onViewMore }: ProductDetailProps) {
   const [selectedColor, setSelectedColor] = useState(product.colors?.[0] || '');
-  const phoneNumber = '8012424220';
-  const whatsappNumber = '8012424220';
+  const phoneNumber = '8925163362';
+  const whatsappNumber = '9952597145';
 
   const handleCallNow = () => {
     alert(`Calling ${phoneNumber}...`);
