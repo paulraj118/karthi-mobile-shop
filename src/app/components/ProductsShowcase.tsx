@@ -58,9 +58,11 @@ export function ProductsShowcase({ onProductClick, selectedBrand, onClearBrand }
               }}
               whileHover={{ 
                 y: -10,
-                transition: { duration: 0.3 }
+                borderColor: '#1E3A8A',
+                borderWidth: '2px',
+                transition: { duration: 0.2 }
               }}
-              className="bg-white rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 overflow-hidden group border border-gray-100"
+              className="bg-white rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 overflow-hidden group border-2 border-transparent"
             >
               {/* Product Image */}
               <div className="relative overflow-hidden bg-gray-100">

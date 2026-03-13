@@ -2,8 +2,8 @@ import { MapPin, Navigation } from 'lucide-react';
 import { motion } from 'motion/react';
 
 export function ShopLocation() {
-  const address = 'Meenambigai Pangala, Virudhunagar, Tamil Nadu 626001';
-  const mapsUrl = 'https://www.google.com/maps/search/?api=1&query=Meenambigai+Pangala+Virudhunagar';
+  const address = 'Aruppukottai Rd, Meenampigai Nagar, Virudhunagar, Tamil Nadu 626001';
+  const mapsUrl = 'https://maps.app.goo.gl/RmKYTdYUX2CJdcXCA';
 
   return (
     <section className="py-16 bg-white">

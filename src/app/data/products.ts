@@ -47,7 +47,7 @@ export const products: Product[] = [
     brand: 'Apple',
     price: 134900,
     originalPrice: 149900,
-    image: img('photo-1510557880182-3d4d3cba35a5'),
+    image: img('photo-1695048065431-83188d447f7d'), // iPhone 15 Pro detail
     rating: 4.8,
     specs: { ram: '8GB', storage: '128GB', camera: '48MP', battery: '3274mAh', processor: 'A17 Pro', display: '6.1" OLED' },
     colors: ['Natural Titanium', 'Blue Titanium', 'White Titanium'],
@@ -60,7 +60,7 @@ export const products: Product[] = [
     brand: 'Apple',
     price: 79900,
     originalPrice: 89900,
-    image: img('photo-1592899677977-9c10ca588bbd'),
+    image: img('photo-1695048064843-85579998818f'), // iPhone 15 base
     rating: 4.8,
     specs: { ram: '6GB', storage: '128GB', camera: '48MP', battery: '3349mAh', processor: 'A16 Bionic', display: '6.1" OLED' },
     colors: ['Black', 'Blue', 'Green', 'Yellow', 'Pink'],
@@ -83,7 +83,7 @@ export const products: Product[] = [
     brand: 'Apple',
     price: 59900,
     originalPrice: 69900,
-    image: img('photo-1663499482523-1c0c1bae4ce1'),
+    image: img('photo-1663499066504-269586b4469e'), // iPhone 14
     rating: 4.7,
     specs: { ram: '6GB', storage: '128GB', camera: '12MP', battery: '3279mAh', processor: 'A15 Bionic', display: '6.1" OLED' },
     colors: ['Midnight', 'Starlight', 'Blue', 'Purple', 'Red'],
@@ -174,7 +174,7 @@ export const products: Product[] = [
     brand: 'Samsung',
     price: 99999,
     originalPrice: 109999,
-    image: img('photo-1585060544812-6b45742d762f'),
+    image: img('photo-1610945264223-44163013d2a7'), // S24 Plus feel
     rating: 4.7,
     specs: { ram: '12GB', storage: '256GB', camera: '50MP', battery: '4900mAh', processor: 'Exynos 2400', display: '6.7" AMOLED' },
     inStock: true,
@@ -185,7 +185,7 @@ export const products: Product[] = [
     brand: 'Samsung',
     price: 79999,
     originalPrice: 89999,
-    image: img('photo-1610945264803-c22b62d2a7b3'),
+    image: img('photo-1610945265064-0e34e5519bbf'), // S24 base feel
     rating: 4.7,
     specs: { ram: '8GB', storage: '128GB', camera: '50MP', battery: '4000mAh', processor: 'Exynos 2400', display: '6.2" AMOLED' },
     colors: ['Onyx Black', 'Marble Gray', 'Cobalt Violet'],
@@ -283,7 +283,7 @@ export const products: Product[] = [
     brand: 'Xiaomi',
     price: 69999,
     originalPrice: 79999,
-    image: img('photo-1511707171634-5f897ff02aa9'),
+    image: img('photo-1601784551123-99996969eb24'), // Xiaomi 14 Pro feel
     rating: 4.7,
     specs: { ram: '12GB', storage: '256GB', camera: '50MP', battery: '4880mAh', processor: 'Snapdragon 8 Gen 3', display: '6.73" AMOLED' },
     colors: ['Black', 'White', 'Green'],
@@ -297,7 +297,7 @@ export const products: Product[] = [
     brand: 'Xiaomi',
     price: 59999,
     originalPrice: 64999,
-    image: img('photo-1512941937669-90a1b58e7e9c'),
+    image: img('photo-1511707171634-5f897ff02aa9'), // Xiaomi 14 feel
     rating: 4.6,
     specs: { ram: '12GB', storage: '256GB', camera: '50MP', battery: '4610mAh', processor: 'Snapdragon 8 Gen 3', display: '6.36" AMOLED' },
     colors: ['Black', 'White', 'Jade Green'],
