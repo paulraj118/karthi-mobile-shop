@@ -3,8 +3,6 @@ import { X, Phone, MessageCircle, Star, Check, ChevronLeft } from 'lucide-react'
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import type { Product } from './ProductsShowcase';
 import { useState } from 'react';
-import type { Product } from './ProductsShowcase';
-import { useState } from 'react';
 import { products } from '../data/products';
 
 interface ProductDetailProps {
