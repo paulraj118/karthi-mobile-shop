@@ -36,14 +36,20 @@ export function OffersSection() {
   return (
     <section id="offers" className="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-12"
+        >
           <h2 className="text-[#111827] mb-3" style={{ fontSize: '2rem', fontWeight: 700 }}>
             Exclusive Offers & Deals
           </h2>
           <p className="text-gray-600" style={{ fontSize: '1.125rem' }}>
             Save more with our amazing deals and offers
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {offers.map((offer, index) => {
@@ -51,12 +57,12 @@ export function OffersSection() {
             return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                whileHover={{ scale: 1.05 }}
-                className="relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all overflow-hidden group"
+                transition={{ duration: 0.5, delay: index * 0.12 }}
+                whileHover={{ scale: 1.05, y: -8 }}
+                className="relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all overflow-hidden group cursor-pointer"
               >
                 {/* Background Gradient */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${offer.color} opacity-0 group-hover:opacity-10 transition-opacity`}></div>
@@ -69,7 +75,7 @@ export function OffersSection() {
                 </div>
 
                 {/* Icon */}
-                <div className={`inline-flex p-3 rounded-xl bg-gradient-to-br ${offer.color} mb-4`}>
+                <div className={`inline-flex p-3 rounded-xl bg-gradient-to-br ${offer.color} mb-4 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300`}>
                   <Icon className="w-6 h-6 text-white" />
                 </div>
 
@@ -105,15 +111,18 @@ export function OffersSection() {
               <p className="text-blue-100 mb-6" style={{ fontSize: '1.125rem' }}>
                 Don't miss out on our biggest sale of the year! Premium smartphones at unbeatable prices.
               </p>
-              <button
+              <motion.button
+                whileHover={{ scale: 1.05, boxShadow: '0 20px 25px -5px rgba(249, 115, 22, 0.4)' }}
+                whileTap={{ scale: 0.95 }}
                 onClick={() => {
                   const element = document.getElementById('products');
                   if (element) element.scrollIntoView({ behavior: 'smooth' });
                 }}
                 className="bg-[#F97316] hover:bg-[#EA580C] text-white px-8 py-3 rounded-lg transition-all shadow-lg hover:shadow-xl"
+                style={{ fontWeight: 600 }}
               >
                 Shop Now
-              </button>
+              </motion.button>
             </div>
           </div>
         </motion.div>

@@ -29,14 +29,20 @@ export function ContactSection() {
   return (
     <section id="contact" className="py-16 bg-gradient-to-br from-blue-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-12"
+        >
           <h2 className="text-[#111827] mb-3" style={{ fontSize: '2rem', fontWeight: 700 }}>
             Get in Touch
           </h2>
           <p className="text-gray-600" style={{ fontSize: '1.125rem' }}>
             Have questions? We're here to help!
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12">
           {/* Contact Info */}
@@ -54,12 +60,13 @@ export function ContactSection() {
             </div>
 
             {/* Phone */}
-            <a
+            <motion.a
+              whileHover={{ x: 5, scale: 1.02 }}
               href={`tel:${phoneNumber}`}
               onClick={handleCallClick}
-              className="flex items-center gap-4 p-4 bg-white rounded-xl shadow-md hover:shadow-lg transition-all group"
+              className="flex items-center gap-4 p-4 bg-white rounded-xl shadow-md hover:shadow-lg transition-all group cursor-pointer"
             >
-              <div className="bg-[#1E3A8A] group-hover:bg-[#1E40AF] p-3 rounded-lg transition-colors">
+              <div className="bg-[#1E3A8A] group-hover:bg-[#1E40AF] p-3 rounded-lg transition-colors group-hover:scale-110 transform duration-300">
                 <Phone className="w-6 h-6 text-white" />
               </div>
               <div>
@@ -68,16 +75,17 @@ export function ContactSection() {
                   +91 98765 43210
                 </div>
               </div>
-            </a>
+            </motion.a>
 
             {/* WhatsApp */}
-            <a
+            <motion.a
+              whileHover={{ x: 5, scale: 1.02 }}
               href={`https://wa.me/${whatsappNumber}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-4 p-4 bg-white rounded-xl shadow-md hover:shadow-lg transition-all group"
+              className="flex items-center gap-4 p-4 bg-white rounded-xl shadow-md hover:shadow-lg transition-all group cursor-pointer"
             >
-              <div className="bg-[#25D366] group-hover:bg-[#20BA59] p-3 rounded-lg transition-colors">
+              <div className="bg-[#25D366] group-hover:bg-[#20BA59] p-3 rounded-lg transition-colors group-hover:scale-110 transform duration-300">
                 <MessageCircle className="w-6 h-6 text-white" />
               </div>
               <div>
@@ -86,14 +94,15 @@ export function ContactSection() {
                   Chat with us
                 </div>
               </div>
-            </a>
+            </motion.a>
 
             {/* Email */}
-            <a
+            <motion.a
+              whileHover={{ x: 5, scale: 1.02 }}
               href={`mailto:${email}`}
-              className="flex items-center gap-4 p-4 bg-white rounded-xl shadow-md hover:shadow-lg transition-all group"
+              className="flex items-center gap-4 p-4 bg-white rounded-xl shadow-md hover:shadow-lg transition-all group cursor-pointer"
             >
-              <div className="bg-[#F97316] group-hover:bg-[#EA580C] p-3 rounded-lg transition-colors">
+              <div className="bg-[#F97316] group-hover:bg-[#EA580C] p-3 rounded-lg transition-colors group-hover:scale-110 transform duration-300">
                 <Mail className="w-6 h-6 text-white" />
               </div>
               <div>
@@ -102,7 +111,7 @@ export function ContactSection() {
                   {email}
                 </div>
               </div>
-            </a>
+            </motion.a>
 
             {/* Quick Stats */}
             <div className="bg-gradient-to-br from-[#1E3A8A] to-[#2563EB] rounded-xl p-6 text-white mt-8">
@@ -186,13 +195,15 @@ export function ContactSection() {
                   ></textarea>
                 </div>
 
-                <button
+                <motion.button
+                  whileHover={{ scale: 1.02, boxShadow: '0 20px 25px -5px rgba(249, 115, 22, 0.3)' }}
+                  whileTap={{ scale: 0.98 }}
                   type="submit"
                   className="w-full flex items-center justify-center gap-2 bg-[#F97316] hover:bg-[#EA580C] text-white px-8 py-4 rounded-lg transition-all shadow-lg hover:shadow-xl"
                 >
                   <Send className="w-5 h-5" />
                   <span style={{ fontWeight: 600 }}>Send Message via WhatsApp</span>
-                </button>
+                </motion.button>
               </div>
             </form>
           </motion.div>

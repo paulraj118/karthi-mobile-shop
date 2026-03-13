@@ -8,14 +8,20 @@ export function ShopLocation() {
   return (
     <section className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-12"
+        >
           <h2 className="text-[#111827] mb-3" style={{ fontSize: '2rem', fontWeight: 700 }}>
             Visit Our Store
           </h2>
           <p className="text-gray-600" style={{ fontSize: '1.125rem' }}>
             Come experience our smartphones in person
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8 items-center">
           {/* Map */}
@@ -79,7 +85,9 @@ export function ShopLocation() {
               </div>
             </div>
 
-            <a
+            <motion.a
+              whileHover={{ scale: 1.03, boxShadow: '0 20px 25px -5px rgba(30, 58, 138, 0.3)' }}
+              whileTap={{ scale: 0.97 }}
               href={mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
@@ -87,7 +95,7 @@ export function ShopLocation() {
             >
               <Navigation className="w-5 h-5" />
               <span style={{ fontWeight: 600 }}>Get Directions</span>
-            </a>
+            </motion.a>
           </motion.div>
         </div>
       </div>

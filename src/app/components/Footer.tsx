@@ -21,16 +21,16 @@ export function Footer() {
               Your trusted destination for premium smartphones. Authentic products, best prices, and excellent service.
             </p>
             <div className="flex gap-3">
-              <a href="#" className="bg-gray-800 hover:bg-[#1E3A8A] p-2 rounded-lg transition-colors">
+              <a href="#" className="bg-gray-800 hover:bg-[#1E3A8A] p-2 rounded-lg transition-all hover:scale-110 hover:-translate-y-1 duration-300">
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="#" className="bg-gray-800 hover:bg-[#E1306C] p-2 rounded-lg transition-colors">
+              <a href="#" className="bg-gray-800 hover:bg-[#E1306C] p-2 rounded-lg transition-all hover:scale-110 hover:-translate-y-1 duration-300">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" className="bg-gray-800 hover:bg-[#1DA1F2] p-2 rounded-lg transition-colors">
+              <a href="#" className="bg-gray-800 hover:bg-[#1DA1F2] p-2 rounded-lg transition-all hover:scale-110 hover:-translate-y-1 duration-300">
                 <Twitter className="w-5 h-5" />
               </a>
-              <a href="#" className="bg-gray-800 hover:bg-[#FF0000] p-2 rounded-lg transition-colors">
+              <a href="#" className="bg-gray-800 hover:bg-[#FF0000] p-2 rounded-lg transition-all hover:scale-110 hover:-translate-y-1 duration-300">
                 <Youtube className="w-5 h-5" />
               </a>
             </div>
