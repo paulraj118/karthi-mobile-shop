@@ -9,9 +9,9 @@ export function ContactSection() {
     message: '',
   });
 
-  const phoneNumber = '8925163362';
+  const phoneNumber = '+91 99525 97145';
   const whatsappNumber = '9952597145';
-  const email = 'contact@karthikmobiles.com';
+  const email = 'karthikmobilesvnr1@gmail.com';
 
   const handleCallClick = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -72,7 +72,7 @@ export function ContactSection() {
               <div>
                 <div className="text-gray-600" style={{ fontSize: '0.875rem' }}>Call Us</div>
                 <div className="text-gray-900 group-hover:text-[#1E3A8A] transition-colors" style={{ fontSize: '1.125rem', fontWeight: 600 }}>
-                  +91 89251 63362
+                  +91 99525 97145
                 </div>
               </div>
             </motion.a>

@@ -26,7 +26,7 @@ export function Header({ onAdminClick }: HeaderProps) {
     }
   };
 
-  const phoneNumber = '8925163362';
+  const phoneNumber = '+91 99525 97145';
 
   return (
     <header

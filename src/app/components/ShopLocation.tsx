@@ -2,8 +2,8 @@ import { MapPin, Navigation } from 'lucide-react';
 import { motion } from 'motion/react';
 
 export function ShopLocation() {
-  const address = 'Aruppukottai Rd, Meenampigai Nagar, Virudhunagar, Tamil Nadu 626001';
-  const mapsUrl = 'https://maps.app.goo.gl/RmKYTdYUX2CJdcXCA';
+  const address = '102/15B, PULLALAKOTTAI ROAD, OPP. MADURAI BUS STOP, VIRUDHUNAGAR-626001';
+  const mapsUrl = 'https://www.google.com/maps/search/?api=1&query=102%2F15B%2C+PULLALAKOTTAI+ROAD%2C+OPP.+MADURAI+BUS+STOP%2C+VIRUDHUNAGAR-626001';
 
   return (
     <section className="py-16 bg-white">
@@ -33,7 +33,7 @@ export function ShopLocation() {
             className="rounded-2xl overflow-hidden shadow-xl h-96"
           >
             <iframe
-              src="https://maps.google.com/maps?q=Meenambigai%20Pangala%20Virudhunagar%20Tamil%20Nadu&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              src="https://maps.google.com/maps?q=102/15B,%20PULLALAKOTTAI%20ROAD,%20OPP.%20MADURAI%20BUS%20STOP,%20VIRUDHUNAGAR-626001&t=&z=16&ie=UTF8&iwloc=&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0 }}
@@ -62,8 +62,8 @@ export function ShopLocation() {
                   </h3>
                   <p className="text-gray-600" style={{ fontSize: '1rem', lineHeight: '1.6' }}>
                     Karthik Mobiles - Premium Smartphones<br />
-                    Meenambigai Pangala,<br />
-                    Virudhunagar, Tamil Nadu 626001
+                    102/15B, PULLALAKOTTAI ROAD,<br />
+                    OPP. MADURAI BUS STOP, VIRUDHUNAGAR-626001
                   </p>
                 </div>
               </div>

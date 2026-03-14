@@ -100,19 +100,19 @@ export function Footer({ onAdminClick }: FooterProps) {
               <li className="flex items-start gap-2">
                 <MapPin className="w-5 h-5 text-[#F97316] mt-1 flex-shrink-0" />
                 <span className="text-gray-400" style={{ fontSize: '0.875rem' }}>
-                  Meenambigai Pangala,<br />Virudhunagar, Tamil Nadu 626001
+                  102/15B, PULLALAKOTTAI ROAD,<br />OPP. MADURAI BUS STOP, VIRUDHUNAGAR-626001
                 </span>
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="w-5 h-5 text-[#F97316]" />
-                <a href="tel:8925163362" className="text-gray-400 hover:text-[#F97316] transition-colors">
-                  8925163362
+                <a href="tel:9952597145" className="text-gray-400 hover:text-[#F97316] transition-colors">
+                  99525 97145
                 </a>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="w-5 h-5 text-[#F97316]" />
-                <a href="mailto:contact@karthikmobiles.com" className="text-gray-400 hover:text-[#F97316] transition-colors">
-                  contact@karthikmobiles.com
+                <a href="mailto:karthikmobilesvnr1@gmail.com" className="text-gray-400 hover:text-[#F97316] transition-colors">
+                  karthikmobilesvnr1@gmail.com
                 </a>
               </li>
             </ul>
