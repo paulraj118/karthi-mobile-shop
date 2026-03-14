@@ -44,10 +44,13 @@ export default function App() {
     }
     return (
       <ProductProvider>
-        <AdminPanel onLogout={() => {
-          setIsLoggedIn(false);
-          setShowAdmin(false);
-        }} />
+        <AdminPanel 
+          onLogout={() => {
+            setIsLoggedIn(false);
+            setShowAdmin(false);
+          }} 
+          onHome={() => setShowAdmin(false)}
+        />
       </ProductProvider>
     );
   }

@@ -8,10 +8,10 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: #F87171;
+  --primary: #6366F1;
   --primary-foreground: #ffffff;
-  --secondary: #FFF1F1;
-  --secondary-foreground: #B91C1C;
+  --secondary: #EEF2FF;
+  --secondary-foreground: #3730A3;
   --muted: #ececf0;
   --muted-foreground: #717182;
   --accent: #e9ebef;

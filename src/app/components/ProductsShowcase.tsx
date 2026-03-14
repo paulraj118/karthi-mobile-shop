@@ -73,7 +73,7 @@ export function ProductsShowcase({ onProductClick, onScanClick, selectedBrand, o
               }}
               whileHover={{ 
                 y: -10,
-                borderColor: '#F87171',
+                borderColor: '#6366F1',
                 borderWidth: '2px',
                 transition: { duration: 0.2 }
               }}
@@ -115,7 +115,7 @@ export function ProductsShowcase({ onProductClick, onScanClick, selectedBrand, o
               <div className="p-4">
                 {/* Brand & Rating */}
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-[#B91C1C]" style={{ fontSize: '0.875rem', fontWeight: 600 }}>
+                  <span className="text-[#4338CA]" style={{ fontSize: '0.875rem', fontWeight: 600 }}>
                     {product.brand}
                   </span>
                   <div className="flex items-center gap-1">
@@ -144,7 +144,7 @@ export function ProductsShowcase({ onProductClick, onScanClick, selectedBrand, o
                 {/* Price */}
                 <div className="mb-4">
                   <div className="flex items-baseline gap-2">
-                    <span className="text-[#F87171]" style={{ fontSize: '1.5rem', fontWeight: 700 }}>
+                    <span className="text-[#6366F1]" style={{ fontSize: '1.5rem', fontWeight: 700 }}>
                       ₹{product.price.toLocaleString('en-IN')}
                     </span>
                     {product.originalPrice && (
@@ -159,7 +159,7 @@ export function ProductsShowcase({ onProductClick, onScanClick, selectedBrand, o
                 <div className="flex gap-2">
                   <button
                     onClick={() => onProductClick(product)}
-                    className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-[#EF4444] to-[#F87171] hover:from-[#F87171] hover:to-[#FB7185] text-white py-2.5 rounded-lg transition-all"
+                    className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-[#6366F1] to-[#4F46E5] hover:from-[#4F46E5] hover:to-[#4338CA] text-white py-2.5 rounded-lg transition-all"
                     title="View Details"
                   >
                     <Eye className="w-4 h-4" />

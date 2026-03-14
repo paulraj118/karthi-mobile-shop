@@ -28,9 +28,16 @@ export function ProductManager() {
     p.brand.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  const [productToDelete, setProductToDelete] = useState<{id: string, name: string} | null>(null);
+
   const handleDelete = (id: string, name: string) => {
-    if (window.confirm(`Are you sure you want to delete ${name}?`)) {
-      deleteProduct(id);
+    setProductToDelete({ id, name });
+  };
+
+  const confirmDelete = () => {
+    if (productToDelete) {
+      deleteProduct(productToDelete.id);
+      setProductToDelete(null);
     }
   };
 
@@ -42,11 +49,12 @@ export function ProductManager() {
   return (
     <div className="space-y-6">
       {/* Stats Quick View */}
+      {/* Stats Quick View */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-blue-600 rounded-3xl p-6 text-white shadow-xl shadow-blue-500/20">
+        <div className="bg-indigo-600 rounded-3xl p-6 text-white shadow-xl shadow-indigo-500/20">
           <div className="flex justify-between items-start mb-4">
             <Package className="w-8 h-8 opacity-40" />
-            <TrendingUp className="w-5 h-5 text-blue-200" />
+            <TrendingUp className="w-5 h-5 text-indigo-200" />
           </div>
           <div className="text-4xl font-bold mb-1">{products.length}</div>
           <div className="text-blue-100 text-sm font-medium">Total Inventory</div>
@@ -83,7 +91,7 @@ export function ProductManager() {
               placeholder="Filter by name or brand..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-gray-50 rounded-2xl pl-12 pr-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all border border-transparent focus:border-blue-500/10"
+              className="w-full bg-gray-50 rounded-2xl pl-12 pr-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/20 transition-all border border-transparent focus:border-indigo-500/10"
             />
           </div>
         </div>
@@ -139,7 +147,7 @@ export function ProductManager() {
                       <div className="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                         <button 
                           onClick={() => handleOpenEdit(product)}
-                          className="p-2 rounded-lg bg-gray-100 text-gray-400 hover:bg-blue-600 hover:text-white transition-all"
+                          className="p-2 rounded-lg bg-gray-100 text-gray-400 hover:bg-indigo-600 hover:text-white transition-all"
                         >
                           <Edit2 className="w-4 h-4" />
                         </button>
@@ -176,6 +184,43 @@ export function ProductManager() {
               setIsModalOpen(false);
             }}
           />
+        )}
+      </AnimatePresence>
+
+      {/* Custom Delete Modal */}
+      <AnimatePresence>
+        {productToDelete && (
+          <div className="fixed inset-0 z-[110] flex items-center justify-center p-4">
+             <motion.div
+               initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+               onClick={() => setProductToDelete(null)}
+               className="absolute inset-0 bg-gray-900/40 backdrop-blur-sm"
+             />
+             <motion.div
+               initial={{ scale: 0.95, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.95, opacity: 0 }}
+               className="relative w-full max-w-sm bg-white rounded-3xl p-8 shadow-2xl overflow-hidden"
+             >
+                <div className="bg-red-50 w-12 h-12 rounded-2xl flex items-center justify-center mb-6">
+                  <AlertTriangle className="w-6 h-6 text-red-500" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Delete Product?</h3>
+                <p className="text-gray-500 text-sm mb-8">Are you sure you want to delete <span className="text-gray-900 font-bold underline decoration-red-200">{productToDelete.name}</span>? This action cannot be undone.</p>
+                <div className="flex gap-3">
+                  <button 
+                    onClick={() => setProductToDelete(null)}
+                    className="flex-1 bg-gray-100 text-gray-600 font-bold py-3 rounded-xl hover:bg-gray-200 transition-all text-sm"
+                  >
+                    Keep it
+                  </button>
+                  <button 
+                    onClick={confirmDelete}
+                    className="flex-1 bg-red-500 text-white font-bold py-3 rounded-xl hover:bg-red-600 shadow-lg shadow-red-500/20 transition-all text-sm"
+                  >
+                    Yes, Delete
+                  </button>
+                </div>
+             </motion.div>
+          </div>
         )}
       </AnimatePresence>
     </div>
@@ -227,7 +272,7 @@ function ProductModal({ product, onClose, onSave }: { product: Product | null, o
                 type="text" 
                 value={formData.name}
                 onChange={(e) => setFormData({...formData, name: e.target.value})}
-                className="w-full bg-gray-50 border border-transparent focus:border-blue-500/20 rounded-xl px-4 py-3 text-sm transition-all focus:outline-none"
+                className="w-full bg-gray-50 border border-transparent focus:border-indigo-500/20 rounded-xl px-4 py-3 text-sm transition-all focus:outline-none"
                 placeholder="iPhone 15 Pro"
               />
             </div>
@@ -236,7 +281,7 @@ function ProductModal({ product, onClose, onSave }: { product: Product | null, o
               <select 
                 value={formData.brand}
                 onChange={(e) => setFormData({...formData, brand: e.target.value})}
-                className="w-full bg-gray-50 border border-transparent focus:border-blue-500/20 rounded-xl px-4 py-3 text-sm transition-all focus:outline-none"
+                className="w-full bg-gray-50 border border-transparent focus:border-indigo-500/20 rounded-xl px-4 py-3 text-sm transition-all focus:outline-none"
               >
                 <option value="">Select Brand</option>
                 <option value="Apple">Apple</option>
@@ -254,7 +299,7 @@ function ProductModal({ product, onClose, onSave }: { product: Product | null, o
                 type="number" 
                 value={formData.price}
                 onChange={(e) => setFormData({...formData, price: parseInt(e.target.value) || 0})}
-                className="w-full bg-gray-50 border border-transparent focus:border-blue-500/20 rounded-xl px-4 py-3 text-sm transition-all focus:outline-none"
+                className="w-full bg-gray-50 border border-transparent focus:border-indigo-500/20 rounded-xl px-4 py-3 text-sm transition-all focus:outline-none"
               />
             </div>
             <div className="space-y-2">
@@ -282,13 +327,13 @@ function ProductModal({ product, onClose, onSave }: { product: Product | null, o
               type="text" 
               value={formData.image}
               onChange={(e) => setFormData({...formData, image: e.target.value})}
-              className="w-full bg-gray-50 border border-transparent focus:border-blue-500/20 rounded-xl px-4 py-3 text-sm transition-all focus:outline-none"
+              className="w-full bg-gray-50 border border-transparent focus:border-indigo-500/20 rounded-xl px-4 py-3 text-sm transition-all focus:outline-none"
               placeholder="https://images.unsplash.com/..."
             />
           </div>
 
           <div className="pt-4 border-t border-gray-100">
-             <h4 className="text-[10px] font-bold text-blue-600 uppercase tracking-widest mb-4">Core Specifications</h4>
+             <h4 className="text-[10px] font-bold text-indigo-600 uppercase tracking-widest mb-4">Core Specifications</h4>
              <div className="grid grid-cols-3 gap-6">
                <div className="space-y-2">
                  <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">RAM</label>
@@ -296,7 +341,7 @@ function ProductModal({ product, onClose, onSave }: { product: Product | null, o
                     type="text" 
                     value={formData.specs.ram}
                     onChange={(e) => setFormData({...formData, specs: {...formData.specs, ram: e.target.value}})}
-                    className="w-full bg-gray-50 border border-transparent focus:border-blue-500/20 rounded-xl px-4 py-3 text-sm focus:outline-none"
+                    className="w-full bg-gray-50 border border-transparent focus:border-indigo-500/20 rounded-xl px-4 py-3 text-sm focus:outline-none"
                     placeholder="8GB"
                  />
                </div>
@@ -306,7 +351,7 @@ function ProductModal({ product, onClose, onSave }: { product: Product | null, o
                     type="text" 
                     value={formData.specs.storage}
                     onChange={(e) => setFormData({...formData, specs: {...formData.specs, storage: e.target.value}})}
-                    className="w-full bg-gray-50 border border-transparent focus:border-blue-500/20 rounded-xl px-4 py-3 text-sm focus:outline-none"
+                    className="w-full bg-gray-50 border border-transparent focus:border-indigo-500/20 rounded-xl px-4 py-3 text-sm focus:outline-none"
                     placeholder="256GB"
                  />
                </div>
@@ -316,7 +361,7 @@ function ProductModal({ product, onClose, onSave }: { product: Product | null, o
                     type="text" 
                     value={formData.specs.camera}
                     onChange={(e) => setFormData({...formData, specs: {...formData.specs, camera: e.target.value}})}
-                    className="w-full bg-gray-50 border border-transparent focus:border-blue-500/20 rounded-xl px-4 py-3 text-sm focus:outline-none"
+                    className="w-full bg-gray-50 border border-transparent focus:border-indigo-500/20 rounded-xl px-4 py-3 text-sm focus:outline-none"
                     placeholder="50MP Main"
                  />
                </div>

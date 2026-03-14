@@ -8,18 +8,22 @@ import {
   Smartphone,
   TrendingUp,
   BarChart3,
-  Plus
+  Plus,
+  Home
 } from 'lucide-react';
 import { ProductManager } from './ProductManager';
+import { useProducts } from '../../context/ProductContext';
 
 interface AdminPanelProps {
   onLogout: () => void;
+  onHome: () => void;
 }
 
 type AdminTab = 'dashboard' | 'products' | 'settings';
 
-export function AdminPanel({ onLogout }: AdminPanelProps) {
+export function AdminPanel({ onLogout, onHome }: AdminPanelProps) {
   const [activeTab, setActiveTab] = useState<AdminTab>('products');
+  const { products, resetToDefault } = useProducts();
 
   const menuItems = [
     { id: 'dashboard', label: 'Overview', icon: LayoutDashboard },
@@ -39,13 +43,23 @@ export function AdminPanel({ onLogout }: AdminPanelProps) {
         </div>
 
         <nav className="flex-1 space-y-2">
+          <button
+            onClick={onHome}
+            className="w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all text-gray-400 hover:text-white hover:bg-white/5 mb-4"
+          >
+            <Home className="w-5 h-5" />
+            <span className="font-medium text-sm">View Website</span>
+          </button>
+
+          <div className="h-px bg-white/10 my-4 mx-2" />
+
           {menuItems.map((item) => (
             <button
               key={item.id}
               onClick={() => setActiveTab(item.id as AdminTab)}
               className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${
                 activeTab === item.id 
-                  ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/20' 
+                  ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/20' 
                   : 'text-gray-400 hover:text-white hover:bg-white/5'
               }`}
             >
@@ -79,13 +93,50 @@ export function AdminPanel({ onLogout }: AdminPanelProps) {
           </div>
         </header>
 
-        {activeTab === 'products' ? (
-          <ProductManager />
-        ) : (
-          <div className="bg-white rounded-[2rem] p-12 text-center border-2 border-dashed border-gray-200">
-            <BarChart3 className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-            <h3 className="text-xl font-bold text-gray-400">Dashboard Features Coming Soon</h3>
-            <p className="text-gray-300 mt-2">Charts and statistics modules are under preparation.</p>
+        {activeTab === 'products' && <ProductManager />}
+        
+        {activeTab === 'dashboard' && (
+          <div className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="bg-indigo-600 rounded-[2rem] p-8 text-white shadow-xl">
+                 <h4 className="text-indigo-100 text-xs font-bold uppercase tracking-wider mb-2">Total Inventory</h4>
+                 <div className="text-5xl font-bold">{products.length}</div>
+                 <div className="mt-4 flex items-center gap-2 text-indigo-200 text-sm">
+                   <Package className="w-4 h-4" /> Items in database
+                 </div>
+              </div>
+              <div className="bg-white rounded-[2rem] p-8 border border-gray-100 shadow-sm">
+                 <h4 className="text-gray-400 text-xs font-bold uppercase tracking-wider mb-2">Top Brand</h4>
+                 <div className="text-3xl font-bold text-gray-900">Apple</div>
+                 <p className="text-gray-500 text-sm mt-1">42% of collection</p>
+              </div>
+              <div className="bg-white rounded-[2rem] p-8 border border-gray-100 shadow-sm">
+                 <h4 className="text-gray-400 text-xs font-bold uppercase tracking-wider mb-2">Site Visibility</h4>
+                 <div className="text-3xl font-bold text-green-500 text-shadow-sm">Public</div>
+                 <p className="text-gray-500 text-sm mt-1">Live Storefront</p>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {activeTab === 'settings' && (
+          <div className="bg-white rounded-[2rem] p-12 border border-gray-100 shadow-sm max-w-2xl">
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">System Settings</h3>
+            <div className="space-y-8">
+              <div className="flex items-center justify-between p-6 bg-gray-50 rounded-2xl">
+                <div>
+                  <div className="font-bold text-gray-900">Reset Inventory</div>
+                  <p className="text-gray-500 text-sm">Restore the original products list</p>
+                </div>
+                <button 
+                  onClick={() => { if(window.confirm('Reset all products to default?')) resetToDefault(); }}
+                  className="bg-white border border-gray-200 text-red-500 px-6 py-2 rounded-xl font-bold hover:bg-red-50 transition-all text-sm"
+                >
+                  Reset
+                </button>
+              </div>
+              <p className="text-gray-400 text-xs font-medium px-2 italic">More administrative controls will be added soon.</p>
+            </div>
           </div>
         )}
       </main>

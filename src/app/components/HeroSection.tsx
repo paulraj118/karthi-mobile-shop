@@ -12,7 +12,7 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative bg-gradient-to-br from-[#EF4444] via-[#F87171] to-[#FDA4AF] text-white pt-24 md:pt-32 pb-16 md:pb-20 overflow-hidden">
+    <section className="relative bg-gradient-to-br from-[#1E1B4B] via-[#312E81] to-[#4338CA] text-white pt-24 md:pt-32 pb-16 md:pb-20 overflow-hidden">
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-gray-50 to-transparent"></div>
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
@@ -43,7 +43,7 @@ export function HeroSection() {
               }}
               className="inline-block bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6"
             >
-              <span className="text-white" style={{ fontWeight: 600 }}>✨ Exclusive Soft Deals</span>
+              <span className="text-cyan-300" style={{ fontWeight: 600 }}>💎 Premium Selection</span>
             </motion.div>
 
             <motion.h1 
@@ -77,9 +77,9 @@ export function HeroSection() {
             >
               <button
                 onClick={scrollToProducts}
-                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#F87171] to-[#FB923C] hover:from-[#EF4444] hover:to-[#F97316] text-white px-8 py-4 rounded-xl transition-all shadow-lg hover:shadow-xl hover:scale-105 active:scale-95"
+                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#6366F1] to-[#06B6D4] hover:from-[#4F46E5] hover:to-[#0891B2] text-white px-8 py-4 rounded-xl transition-all shadow-lg hover:shadow-xl hover:scale-105 active:scale-95"
               >
-                <span style={{ fontWeight: 600 }}>Explore Mobiles</span>
+                <span style={{ fontWeight: 600 }}>View Catalog</span>
                 <ChevronRight className="w-5 h-5" />
               </button>
 
@@ -155,7 +155,7 @@ export function HeroSection() {
                 animate={{ opacity: 1, x: 0 }}
                 whileHover={{ scale: 1.1, rotate: 5 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="absolute top-8 -right-4 bg-[#F87171] text-white px-6 py-4 rounded-xl shadow-2xl cursor-default"
+                className="absolute top-8 -right-4 bg-[#06B6D4] text-white px-6 py-4 rounded-xl shadow-2xl cursor-default"
               >
                 <div style={{ fontSize: '0.875rem', fontWeight: 600 }}>Up to</div>
                 <div style={{ fontSize: '2rem', fontWeight: 700 }}>40% OFF</div>
