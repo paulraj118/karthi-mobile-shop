@@ -56,11 +56,11 @@ export function BrandShowcase({ onBrandClick }: BrandShowcaseProps) {
                   element.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
-              className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:border-[#DC2626] hover:shadow-xl transition-all group hover:bg-gradient-to-br hover:from-red-50 hover:to-white"
+              className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:border-[#F87171] hover:shadow-xl transition-all group hover:bg-gradient-to-br hover:from-rose-50 hover:to-white"
             >
               <div className="text-center">
                 <div className="mb-3 group-hover:scale-125 transition-transform duration-300" style={{ fontSize: '2.5rem' }}>{brand.logo}</div>
-                <div className="text-gray-700 group-hover:text-[#991B1B] transition-colors" style={{ fontWeight: 600 }}>
+                <div className="text-gray-700 group-hover:text-[#B91C1C] transition-colors" style={{ fontWeight: 600 }}>
                   {brand.name}
                 </div>
               </div>

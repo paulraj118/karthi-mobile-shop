@@ -45,12 +45,12 @@ export function Header({ onAdminClick }: HeaderProps) {
             className="flex items-center gap-2 cursor-pointer"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
-            <div className="bg-gradient-to-br from-[#DC2626] to-[#F97316] p-2 rounded-xl shadow-lg shadow-red-500/20">
+            <div className="bg-gradient-to-br from-[#F87171] to-[#FB923C] p-2 rounded-xl shadow-lg shadow-red-200/50">
               <Smartphone className="w-6 h-6 text-white" />
             </div>
             <div className="hidden sm:block">
-              <div className="text-[#991B1B] tracking-tight" style={{ fontSize: '1.25rem', fontWeight: 700 }}>Karthik Mobiles</div>
-              <div className="text-[#DC2626] tracking-wide" style={{ fontSize: '0.625rem', fontWeight: 600, marginTop: '-4px' }}>PREMIUM SMARTPHONES</div>
+              <div className="text-[#B91C1C] tracking-tight" style={{ fontSize: '1.25rem', fontWeight: 700 }}>Karthik Mobiles</div>
+              <div className="text-[#F87171] tracking-wide" style={{ fontSize: '0.625rem', fontWeight: 600, marginTop: '-4px' }}>PREMIUM SMARTPHONES</div>
             </div>
           </motion.div>
 
@@ -67,21 +67,21 @@ export function Header({ onAdminClick }: HeaderProps) {
               <button
                 key={item.name}
                 onClick={() => item.action ? item.action() : item.id ? scrollToSection(item.id) : window.scrollTo({ top: 0, behavior: 'smooth' })}
-                className="relative text-gray-700 hover:text-[#DC2626] transition-colors group py-2"
+                className="relative text-gray-700 hover:text-[#EF4444] transition-colors group py-2"
                 style={{ fontWeight: 600 }}
               >
                 {item.name}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#DC2626] to-[#F97316] transition-all duration-300 group-hover:w-full" />
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#F87171] to-[#FB923C] transition-all duration-300 group-hover:w-full" />
               </button>
             ))}
           </nav>
 
           {/* Call Button - Desktop */}
           <motion.a
-            whileHover={{ scale: 1.05, backgroundColor: '#B91C1C' }}
+            whileHover={{ scale: 1.05, backgroundColor: '#EF4444' }}
             whileTap={{ scale: 0.95 }}
             href={`tel:${phoneNumber}`}
-            className="hidden md:flex items-center gap-2 bg-gradient-to-r from-[#DC2626] to-[#F97316] text-white px-6 py-2.5 rounded-lg transition-all shadow-md hover:shadow-lg shadow-red-500/20"
+            className="hidden md:flex items-center gap-2 bg-gradient-to-r from-[#F87171] to-[#FB923C] text-white px-6 py-2.5 rounded-lg transition-all shadow-md hover:shadow-lg shadow-red-200/50"
           >
             <Phone className="w-4 h-4" />
             <span style={{ fontWeight: 600 }}>Call Now</span>

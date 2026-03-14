@@ -14,7 +14,7 @@ export function Footer({ onAdminClick }: FooterProps) {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="bg-gradient-to-br from-[#DC2626] to-[#F97316] p-2 rounded-xl text-white">
+              <div className="bg-gradient-to-br from-[#F87171] to-[#FB923C] p-2 rounded-xl text-white">
                 <Smartphone className="w-6 h-6" />
               </div>
               <div 
