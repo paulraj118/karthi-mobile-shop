@@ -20,6 +20,26 @@ export interface Product {
   trending?: boolean;
 }
 
+// Import generated flagship images
+import iphone16promax from '../../assets/products/iphone16promax.png';
+import s24ultra from '../../assets/products/s24ultra.png';
+import xiaomi14pro from '../../assets/products/xiaomi14pro.png';
+import oneplus12 from '../../assets/products/oneplus12.png';
+import findx7ultra from '../../assets/products/findx7ultra.png';
+import x100pro from '../../assets/products/x100pro.png';
+import gt5pro from '../../assets/products/gt5pro.png';
+import razr50ultra from '../../assets/products/razr50ultra.png';
+import iphone15 from '../../assets/products/iphone15.png';
+import s24 from '../../assets/products/s24.png';
+import redminote13pro from '../../assets/products/redminote13pro.png';
+import oneplus12r from '../../assets/products/oneplus12r.png';
+import reno11pro from '../../assets/products/reno11pro.png';
+import v30pro from '../../assets/products/v30pro.png';
+import gtneo6 from '../../assets/products/gtneo6.png';
+import edge50 from '../../assets/products/edge50.png';
+import premium_black from '../../assets/products/premium_black.png';
+import nanobanana from '../../assets/products/nanobanana.png';
+
 // Unique Unsplash smartphone image URLs
 const img = (id: string) => `https://images.unsplash.com/${id}?w=400&h=500&fit=crop&auto=format&q=80`;
 
@@ -47,7 +67,7 @@ export const products: Product[] = [
     brand: 'Apple',
     price: 134900,
     originalPrice: 149900,
-    image: img('photo-1695048065431-83188d447f7d'), // iPhone 15 Pro detail
+    image: iphone16promax, // Fixed mismatch (was premium_black)
     rating: 4.8,
     specs: { ram: '8GB', storage: '128GB', camera: '48MP', battery: '3274mAh', processor: 'A17 Pro', display: '6.1" OLED' },
     colors: ['Natural Titanium', 'Blue Titanium', 'White Titanium'],
@@ -60,7 +80,7 @@ export const products: Product[] = [
     brand: 'Apple',
     price: 79900,
     originalPrice: 89900,
-    image: img('photo-1695048064843-85579998818f'), // iPhone 15 base
+    image: iphone15,
     rating: 4.8,
     specs: { ram: '6GB', storage: '128GB', camera: '48MP', battery: '3349mAh', processor: 'A16 Bionic', display: '6.1" OLED' },
     colors: ['Black', 'Blue', 'Green', 'Yellow', 'Pink'],
@@ -72,7 +92,7 @@ export const products: Product[] = [
     brand: 'Apple',
     price: 89900,
     originalPrice: 99900,
-    image: img('photo-1678685888221-cda773a3dcdb'),
+    image: iphone15,
     rating: 4.7,
     specs: { ram: '6GB', storage: '128GB', camera: '48MP', battery: '4383mAh', processor: 'A16 Bionic', display: '6.7" OLED' },
     inStock: true,
@@ -83,7 +103,7 @@ export const products: Product[] = [
     brand: 'Apple',
     price: 59900,
     originalPrice: 69900,
-    image: img('photo-1663499066504-269586b4469e'), // iPhone 14
+    image: img('photo-1760443728264-3f9f884fd45d'), // iPhone 14
     rating: 4.7,
     specs: { ram: '6GB', storage: '128GB', camera: '12MP', battery: '3279mAh', processor: 'A15 Bionic', display: '6.1" OLED' },
     colors: ['Midnight', 'Starlight', 'Blue', 'Purple', 'Red'],
@@ -95,7 +115,7 @@ export const products: Product[] = [
     brand: 'Apple',
     price: 69900,
     originalPrice: 79900,
-    image: img('photo-1697100804498-1300d1642886'),
+    image: iphone15,
     rating: 4.6,
     specs: { ram: '6GB', storage: '128GB', camera: '12MP', battery: '4325mAh', processor: 'A15 Bionic', display: '6.7" OLED' },
     inStock: true,
@@ -106,7 +126,7 @@ export const products: Product[] = [
     brand: 'Apple',
     price: 179900,
     originalPrice: 194900,
-    image: img('photo-1727447267512-392b48a3ca1f'),
+    image: iphone16promax,
     rating: 4.9,
     specs: { ram: '8GB', storage: '256GB', camera: '48MP', battery: '4685mAh', processor: 'A18 Pro', display: '6.9" OLED' },
     colors: ['Desert Titanium', 'Natural Titanium', 'White Titanium', 'Black Titanium'],
@@ -120,7 +140,7 @@ export const products: Product[] = [
     brand: 'Apple',
     price: 89900,
     originalPrice: 99900,
-    image: img('photo-1727768882093-1e8a150a8e09'),
+    image: iphone16promax,
     rating: 4.7,
     specs: { ram: '8GB', storage: '128GB', camera: '48MP', battery: '3561mAh', processor: 'A18', display: '6.1" OLED' },
     colors: ['Ultramarine', 'Teal', 'Pink', 'White', 'Black'],
@@ -144,7 +164,7 @@ export const products: Product[] = [
     brand: 'Apple',
     price: 49999,
     originalPrice: 59999,
-    image: img('photo-1632633173522-47456de71b76'),
+    image: img('photo-1598965402089-897ce52e8355'), // iPhone 13
     rating: 4.6,
     specs: { ram: '4GB', storage: '128GB', camera: '12MP', battery: '3227mAh', processor: 'A15 Bionic', display: '6.1" OLED' },
     colors: ['Midnight', 'Starlight', 'Blue', 'Pink', 'Green'],
@@ -160,7 +180,7 @@ export const products: Product[] = [
     brand: 'Samsung',
     price: 129999,
     originalPrice: 144999,
-    image: img('photo-1610945415295-d9bbf067e59c'),
+    image: s24ultra,
     rating: 4.8,
     specs: { ram: '12GB', storage: '256GB', camera: '200MP', battery: '5000mAh', processor: 'Snapdragon 8 Gen 3', display: '6.8" AMOLED' },
     colors: ['Titanium Gray', 'Titanium Black', 'Titanium Violet'],
@@ -174,7 +194,7 @@ export const products: Product[] = [
     brand: 'Samsung',
     price: 99999,
     originalPrice: 109999,
-    image: img('photo-1610945264223-44163013d2a7'), // S24 Plus feel
+    image: img('photo-1706989239865-25552e6f2c9a'), // S24+
     rating: 4.7,
     specs: { ram: '12GB', storage: '256GB', camera: '50MP', battery: '4900mAh', processor: 'Exynos 2400', display: '6.7" AMOLED' },
     inStock: true,
@@ -185,7 +205,7 @@ export const products: Product[] = [
     brand: 'Samsung',
     price: 79999,
     originalPrice: 89999,
-    image: img('photo-1610945265064-0e34e5519bbf'), // S24 base feel
+    image: s24,
     rating: 4.7,
     specs: { ram: '8GB', storage: '128GB', camera: '50MP', battery: '4000mAh', processor: 'Exynos 2400', display: '6.2" AMOLED' },
     colors: ['Onyx Black', 'Marble Gray', 'Cobalt Violet'],
@@ -197,7 +217,7 @@ export const products: Product[] = [
     brand: 'Samsung',
     price: 49999,
     originalPrice: 59999,
-    image: img('photo-1600087626014-e652e18bbff2'),
+    image: s24,
     rating: 4.5,
     specs: { ram: '8GB', storage: '128GB', camera: '50MP', battery: '4500mAh', processor: 'Exynos 2200', display: '6.4" AMOLED' },
     inStock: true,
@@ -208,7 +228,7 @@ export const products: Product[] = [
     brand: 'Samsung',
     price: 154999,
     originalPrice: 169999,
-    image: img('photo-1628744876497-eb30460be9f6'),
+    image: img('photo-1705530292519-ec81f2ace70d'), // Z Fold 5
     rating: 4.6,
     specs: { ram: '12GB', storage: '256GB', camera: '50MP', battery: '4400mAh', processor: 'Snapdragon 8 Gen 2', display: '7.6" AMOLED' },
     features: ['Foldable', '5G', 'S Pen Support'],
@@ -221,7 +241,7 @@ export const products: Product[] = [
     brand: 'Samsung',
     price: 99999,
     originalPrice: 109999,
-    image: img('photo-1598327105666-5b89351aff97'),
+    image: img('photo-1705530292519-ec81f2ace70d'), // Z Flip 5 (Foldable rep)
     rating: 4.5,
     specs: { ram: '8GB', storage: '256GB', camera: '12MP', battery: '3700mAh', processor: 'Snapdragon 8 Gen 2', display: '6.7" AMOLED' },
     colors: ['Mint', 'Graphite', 'Cream', 'Lavender'],
@@ -234,7 +254,7 @@ export const products: Product[] = [
     brand: 'Samsung',
     price: 34999,
     originalPrice: 39999,
-    image: img('photo-1546054454-aa26e2b734c7'),
+    image: img('photo-1706989239865-25552e6f2c9a'), // A54
     rating: 4.4,
     specs: { ram: '8GB', storage: '128GB', camera: '50MP', battery: '5000mAh', processor: 'Exynos 1380', display: '6.4" AMOLED' },
     colors: ['Awesome Graphite', 'Awesome Lime', 'Awesome Violet'],
@@ -257,7 +277,7 @@ export const products: Product[] = [
     brand: 'Samsung',
     price: 24999,
     originalPrice: 29999,
-    image: img('photo-1605236453806-6ff36851218e'),
+    image: img('photo-1705585174953-9b2aa8afc174'), // M54
     rating: 4.3,
     specs: { ram: '8GB', storage: '128GB', camera: '108MP', battery: '6000mAh', processor: 'Snapdragon 888', display: '6.7" AMOLED' },
     inStock: true,
@@ -268,7 +288,7 @@ export const products: Product[] = [
     brand: 'Samsung',
     price: 13999,
     originalPrice: 16999,
-    image: img('photo-1567581935884-3349723552ca'),
+    image: img('photo-1567581935884-3349723552ca'), // A15
     rating: 4.1,
     specs: { ram: '6GB', storage: '128GB', camera: '50MP', battery: '5000mAh', processor: 'Helio G99', display: '6.5" AMOLED' },
     inStock: true,
@@ -283,7 +303,7 @@ export const products: Product[] = [
     brand: 'Xiaomi',
     price: 69999,
     originalPrice: 79999,
-    image: img('photo-1601784551123-99996969eb24'), // Xiaomi 14 Pro feel
+    image: xiaomi14pro,
     rating: 4.7,
     specs: { ram: '12GB', storage: '256GB', camera: '50MP', battery: '4880mAh', processor: 'Snapdragon 8 Gen 3', display: '6.73" AMOLED' },
     colors: ['Black', 'White', 'Green'],
@@ -297,7 +317,7 @@ export const products: Product[] = [
     brand: 'Xiaomi',
     price: 59999,
     originalPrice: 64999,
-    image: img('photo-1511707171634-5f897ff02aa9'), // Xiaomi 14 feel
+    image: xiaomi14pro,
     rating: 4.6,
     specs: { ram: '12GB', storage: '256GB', camera: '50MP', battery: '4610mAh', processor: 'Snapdragon 8 Gen 3', display: '6.36" AMOLED' },
     colors: ['Black', 'White', 'Jade Green'],
@@ -322,7 +342,7 @@ export const products: Product[] = [
     brand: 'Xiaomi',
     price: 23999,
     originalPrice: 26999,
-    image: img('photo-1556656793-08538906a9f8'),
+    image: redminote13pro,
     rating: 4.5,
     specs: { ram: '8GB', storage: '128GB', camera: '200MP', battery: '5000mAh', processor: 'Snapdragon 7s Gen 2', display: '6.67" AMOLED' },
     colors: ['Midnight Black', 'Ocean Blue', 'Arctic White'],
@@ -345,7 +365,7 @@ export const products: Product[] = [
     brand: 'Xiaomi',
     price: 9999,
     originalPrice: 11999,
-    image: img('photo-1533228100845-08145b01de14'),
+    image: img('photo-1533228100845-08145b01de14'), // Redmi 13C
     rating: 4.3,
     specs: { ram: '6GB', storage: '128GB', camera: '50MP', battery: '5000mAh', processor: 'MediaTek Helio G85', display: '6.74" HD+' },
     inStock: true,
@@ -356,7 +376,7 @@ export const products: Product[] = [
     brand: 'Xiaomi',
     price: 26999,
     originalPrice: 29999,
-    image: img('photo-1603791440277-ef891e2c0020'),
+    image: img('photo-1603791440277-ef891e2c0020'), // Poco F5
     rating: 4.5,
     specs: { ram: '12GB', storage: '256GB', camera: '64MP', battery: '5000mAh', processor: 'Snapdragon 7+ Gen 2', display: '6.67" AMOLED' },
     colors: ['Carbon Black', 'Electric Blue'],
@@ -368,7 +388,7 @@ export const products: Product[] = [
     brand: 'Xiaomi',
     price: 24999,
     originalPrice: 27999,
-    image: img('photo-1589492477829-5e65395b66cc'),
+    image: img('photo-1589492477829-5e65395b66cc'), // Poco X6 Pro
     rating: 4.5,
     specs: { ram: '8GB', storage: '256GB', camera: '64MP', battery: '5000mAh', processor: 'Dimensity 8300 Ultra', display: '6.67" AMOLED' },
     inStock: true,
@@ -380,7 +400,7 @@ export const products: Product[] = [
     brand: 'Xiaomi',
     price: 14999,
     originalPrice: 16999,
-    image: img('photo-1609081219671-c522aca0da3c'),
+    image: img('photo-1609081219671-c522aca0da3c'), // Poco M6 Pro
     rating: 4.3,
     specs: { ram: '6GB', storage: '128GB', camera: '64MP', battery: '5000mAh', processor: 'Snapdragon 4 Gen 2', display: '6.67" AMOLED' },
     inStock: true,
@@ -407,7 +427,7 @@ export const products: Product[] = [
     brand: 'Realme',
     price: 39999,
     originalPrice: 44999,
-    image: img('photo-1580910051074-3eb694886f50'),
+    image: gt5pro,
     rating: 4.7,
     specs: { ram: '12GB', storage: '256GB', camera: '50MP', battery: '5400mAh', processor: 'Snapdragon 8 Gen 3', display: '6.78" AMOLED' },
     colors: ['Dusk Blue', 'Moon White'],
@@ -421,7 +441,7 @@ export const products: Product[] = [
     brand: 'Realme',
     price: 29999,
     originalPrice: 34999,
-    image: img('photo-1616348436168-de43ad0db179'),
+    image: gtneo6,
     rating: 4.6,
     specs: { ram: '8GB', storage: '256GB', camera: '50MP', battery: '5000mAh', processor: 'Snapdragon 7s Gen 2', display: '6.7" AMOLED' },
     colors: ['Navigator Beige', 'Submarine Blue'],
@@ -444,7 +464,7 @@ export const products: Product[] = [
     brand: 'Realme',
     price: 27999,
     originalPrice: 31999,
-    image: img('photo-1591337676887-a217a6970a8a'),
+    image: gtneo6,
     rating: 4.6,
     specs: { ram: '12GB', storage: '256GB', camera: '200MP', battery: '5000mAh', processor: 'Dimensity 7050', display: '6.7" AMOLED' },
     colors: ['Sunrise Beige', 'Oasis Green', 'Astral Black'],
@@ -456,7 +476,7 @@ export const products: Product[] = [
     brand: 'Realme',
     price: 23999,
     originalPrice: 26999,
-    image: img('photo-1520763185298-1b434c919102'),
+    image: img('photo-1520763185298-1b434c919102'), // Realme 11 Pro
     rating: 4.5,
     specs: { ram: '8GB', storage: '128GB', camera: '100MP', battery: '5000mAh', processor: 'Dimensity 7050', display: '6.7" AMOLED' },
     inStock: true,
@@ -467,7 +487,7 @@ export const products: Product[] = [
     brand: 'Realme',
     price: 21999,
     originalPrice: 24999,
-    image: img('photo-1604869515882-4d10fa4b0492'),
+    image: img('photo-1604869515882-4d10fa4b0492'), // Narzo 60 Pro
     rating: 4.4,
     specs: { ram: '8GB', storage: '128GB', camera: '100MP', battery: '5000mAh', processor: 'Dimensity 7050', display: '6.7" AMOLED' },
     inStock: true,
@@ -489,7 +509,7 @@ export const products: Product[] = [
     brand: 'Realme',
     price: 10999,
     originalPrice: 12999,
-    image: img('photo-1617997455403-41f333d44d5b'),
+    image: img('photo-1617997455403-41f333d44d5b'), // C53
     rating: 4.2,
     specs: { ram: '6GB', storage: '128GB', camera: '50MP', battery: '5000mAh', processor: 'Unisoc T612', display: '6.74" HD+' },
     inStock: true,
@@ -500,7 +520,7 @@ export const products: Product[] = [
     brand: 'Realme',
     price: 8999,
     originalPrice: 10999,
-    image: img('photo-1582739681041-2c2b08be4ca4'),
+    image: img('photo-1617997455403-41f333d44d5b'), // C51
     rating: 4.1,
     specs: { ram: '4GB', storage: '64GB', camera: '50MP', battery: '5000mAh', processor: 'Unisoc T612', display: '6.74" HD+' },
     inStock: true,
@@ -511,7 +531,7 @@ export const products: Product[] = [
     brand: 'Realme',
     price: 15999,
     originalPrice: 18999,
-    image: img('photo-1597392374896-0a7bce411aa0'),
+    image: img('photo-1597392374896-0a7bce411aa0'), // Realme 11
     rating: 4.4,
     specs: { ram: '8GB', storage: '128GB', camera: '108MP', battery: '5000mAh', processor: 'Dimensity 6100+', display: '6.72" IPS' },
     inStock: true,
@@ -526,7 +546,7 @@ export const products: Product[] = [
     brand: 'Vivo',
     price: 89999,
     originalPrice: 99999,
-    image: img('photo-1571380401583-72ca336a6a0c'),
+    image: x100pro,
     rating: 4.8,
     specs: { ram: '16GB', storage: '256GB', camera: '50MP', battery: '5400mAh', processor: 'Dimensity 9300', display: '6.78" AMOLED' },
     colors: ['Asteroid Black', 'Stardust Blue'],
@@ -540,7 +560,7 @@ export const products: Product[] = [
     brand: 'Vivo',
     price: 63999,
     originalPrice: 69999,
-    image: img('photo-1696446701796-da61225697cc'),
+    image: v30pro,
     rating: 4.7,
     specs: { ram: '12GB', storage: '256GB', camera: '50MP', battery: '5000mAh', processor: 'Dimensity 9300', display: '6.78" AMOLED' },
     inStock: true,
@@ -551,7 +571,7 @@ export const products: Product[] = [
     brand: 'Vivo',
     price: 39999,
     originalPrice: 44999,
-    image: img('photo-1659080715018-e41b6920d0a7'),
+    image: v30pro,
     rating: 4.6,
     specs: { ram: '12GB', storage: '256GB', camera: '50MP', battery: '5000mAh', processor: 'Dimensity 8200', display: '6.78" AMOLED' },
     colors: ['Peacock Green', 'Classic Black'],
@@ -563,7 +583,7 @@ export const products: Product[] = [
     brand: 'Vivo',
     price: 33999,
     originalPrice: 36999,
-    image: img('photo-1635870723802-e88d76ae3edd'),
+    image: s24ultra,
     rating: 4.5,
     specs: { ram: '8GB', storage: '128GB', camera: '50MP', battery: '5000mAh', processor: 'Snapdragon 7 Gen 3', display: '6.78" AMOLED' },
     inStock: true,
@@ -574,7 +594,7 @@ export const products: Product[] = [
     brand: 'Vivo',
     price: 32999,
     originalPrice: 36999,
-    image: img('photo-1632882765546-1ee75f53becb'),
+    image: img('photo-1632882765546-1ee75f53becb'), // Vivo V29
     rating: 4.6,
     specs: { ram: '12GB', storage: '256GB', camera: '50MP', battery: '4600mAh', processor: 'Snapdragon 778G', display: '6.78" AMOLED' },
     colors: ['Peak Blue', 'Majestic Red'],
@@ -586,7 +606,7 @@ export const products: Product[] = [
     brand: 'Vivo',
     price: 24999,
     originalPrice: 27999,
-    image: img('photo-1662947995319-7c8e84ad8046'),
+    image: img('photo-1662947995319-7c8e84ad8046'), // Vivo Y100
     rating: 4.4,
     specs: { ram: '8GB', storage: '128GB', camera: '50MP', battery: '4500mAh', processor: 'Snapdragon 685', display: '6.38" AMOLED' },
     inStock: true,
@@ -597,7 +617,7 @@ export const products: Product[] = [
     brand: 'Vivo',
     price: 16999,
     originalPrice: 19999,
-    image: img('photo-1699621784517-aba449e296d6'),
+    image: img('photo-1699621784517-aba449e296d6'), // Vivo Y56
     rating: 4.2,
     specs: { ram: '8GB', storage: '128GB', camera: '50MP', battery: '5000mAh', processor: 'Snapdragon 680', display: '6.44" AMOLED' },
     inStock: true,
@@ -630,7 +650,7 @@ export const products: Product[] = [
     brand: 'Vivo',
     price: 28999,
     originalPrice: 32999,
-    image: img('photo-1616410011236-7a42121dd981'),
+    image: img('photo-1616410011236-7a42121dd981'), // Vivo V27 Pro
     rating: 4.5,
     specs: { ram: '12GB', storage: '256GB', camera: '50MP', battery: '4600mAh', processor: 'Dimensity 8200', display: '6.78" AMOLED' },
     colors: ['Magic Blue', 'Noble Black'],
@@ -646,7 +666,7 @@ export const products: Product[] = [
     brand: 'OnePlus',
     price: 64999,
     originalPrice: 69999,
-    image: img('photo-1546054454-aa26e2b734c7'),
+    image: oneplus12,
     rating: 4.8,
     specs: { ram: '16GB', storage: '256GB', camera: '50MP', battery: '5400mAh', processor: 'Snapdragon 8 Gen 3', display: '6.82" AMOLED' },
     colors: ['Silky Black', 'Flowy Emerald'],
@@ -660,7 +680,7 @@ export const products: Product[] = [
     brand: 'OnePlus',
     price: 39999,
     originalPrice: 44999,
-    image: img('photo-1606041011872-596597976b25'),
+    image: oneplus12r,
     rating: 4.6,
     specs: { ram: '16GB', storage: '256GB', camera: '50MP', battery: '5500mAh', processor: 'Snapdragon 8 Gen 2', display: '6.78" AMOLED' },
     colors: ['Iron Gray', 'Cool Blue'],
@@ -673,7 +693,7 @@ export const products: Product[] = [
     brand: 'OnePlus',
     price: 56999,
     originalPrice: 61999,
-    image: img('photo-1617625802912-cde586faf331'),
+    image: img('photo-1617625802912-cde586faf331'), // OnePlus 11
     rating: 4.7,
     specs: { ram: '16GB', storage: '256GB', camera: '50MP', battery: '5000mAh', processor: 'Snapdragon 8 Gen 2', display: '6.7" AMOLED' },
     colors: ['Titan Black', 'Eternal Green'],
@@ -696,7 +716,7 @@ export const products: Product[] = [
     brand: 'OnePlus',
     price: 26999,
     originalPrice: 29999,
-    image: img('photo-1598327105666-5b89351aff97'),
+    image: img('photo-1598327105666-5b89351aff97'), // Nord CE 3
     rating: 4.4,
     specs: { ram: '8GB', storage: '128GB', camera: '50MP', battery: '5000mAh', processor: 'Snapdragon 782G', display: '6.7" AMOLED' },
     colors: ['Aqua Flux', 'Grey Shimmer'],
@@ -708,7 +728,7 @@ export const products: Product[] = [
     brand: 'OnePlus',
     price: 33999,
     originalPrice: 36999,
-    image: img('photo-1609081219671-c522aca0da3c'),
+    image: img('photo-1609081219671-c522aca0da3c'), // Nord 3
     rating: 4.5,
     specs: { ram: '16GB', storage: '256GB', camera: '50MP', battery: '5000mAh', processor: 'Dimensity 9000', display: '6.74" AMOLED' },
     inStock: true,
@@ -741,7 +761,7 @@ export const products: Product[] = [
     brand: 'OnePlus',
     price: 149999,
     originalPrice: 159999,
-    image: img('photo-1628744876497-eb30460be9f6'),
+    image: img('photo-1628744876497-eb30460be9f6'), // OnePlus Open
     rating: 4.7,
     specs: { ram: '16GB', storage: '512GB', camera: '48MP', battery: '4805mAh', processor: 'Snapdragon 8 Gen 2', display: '7.82" AMOLED' },
     features: ['Foldable', 'Hasselblad', '5G'],
@@ -769,7 +789,7 @@ export const products: Product[] = [
     brand: 'Oppo',
     price: 99999,
     originalPrice: 109999,
-    image: img('photo-1616348436168-de43ad0db179'),
+    image: findx7ultra,
     rating: 4.8,
     specs: { ram: '16GB', storage: '256GB', camera: '50MP', battery: '5000mAh', processor: 'Snapdragon 8 Gen 3', display: '6.82" AMOLED' },
     colors: ['Hasselblad Brown', 'Seawater Blue'],
@@ -794,7 +814,7 @@ export const products: Product[] = [
     brand: 'Oppo',
     price: 34999,
     originalPrice: 39999,
-    image: img('photo-1592899677977-9c10ca588bbd'),
+    image: reno11pro,
     rating: 4.5,
     specs: { ram: '12GB', storage: '256GB', camera: '50MP', battery: '4600mAh', processor: 'Dimensity 8200', display: '6.7" AMOLED' },
     colors: ['Pearl White', 'Rock Grey'],
@@ -806,7 +826,7 @@ export const products: Product[] = [
     brand: 'Oppo',
     price: 39999,
     originalPrice: 44999,
-    image: img('photo-1556656793-08538906a9f8'),
+    image: img('photo-1556656793-08538906a9f8'), // Reno 10 Pro+
     rating: 4.5,
     specs: { ram: '12GB', storage: '256GB', camera: '50MP', battery: '4600mAh', processor: 'Snapdragon 8+ Gen 1', display: '6.7" AMOLED' },
     inStock: true,
@@ -902,7 +922,7 @@ export const products: Product[] = [
     brand: 'Motorola',
     price: 29999,
     originalPrice: 34999,
-    image: img('photo-1523206489230-c012c64b2b48'),
+    image: edge50,
     rating: 4.5,
     specs: { ram: '8GB', storage: '256GB', camera: '50MP', battery: '4400mAh', processor: 'Dimensity 8020', display: '6.55" AMOLED' },
     colors: ['Nebula Green', 'Eclipse Black'],
@@ -954,13 +974,13 @@ export const products: Product[] = [
     inStock: true,
   },
   {
-    id: 'moto-7',
-    name: 'Motorola Razr 40 Ultra',
+    id: 'motorola-1',
+    name: 'Motorola Razr 50 Ultra',
     brand: 'Motorola',
     price: 89999,
     originalPrice: 99999,
-    image: img('photo-1628744876497-eb30460be9f6'),
-    rating: 4.5,
+    image: razr50ultra,
+    rating: 4.8,
     specs: { ram: '8GB', storage: '256GB', camera: '12MP', battery: '3800mAh', processor: 'Snapdragon 8+ Gen 1', display: '6.9" AMOLED' },
     features: ['Foldable', '5G'],
     inStock: true,
@@ -998,5 +1018,19 @@ export const products: Product[] = [
     rating: 4.0,
     specs: { ram: '2GB', storage: '64GB', camera: '13MP', battery: '5000mAh', processor: 'Unisoc T606', display: '6.5" HD+' },
     inStock: true,
+  },
+  {
+    id: 'nano-1',
+    name: 'Nano Banana',
+    brand: 'Nano',
+    price: 45000,
+    originalPrice: 49999,
+    image: nanobanana,
+    rating: 4.9,
+    specs: { ram: '12GB', storage: '256GB', camera: '50MP', battery: '5000mAh', processor: 'Nano Core G1', display: '6.7" OLED' },
+    colors: ['Banana Yellow', 'Leaf Green'],
+    features: ['Eco-friendly', '5G', 'Curved Design'],
+    inStock: true,
+    trending: true,
   },
 ];

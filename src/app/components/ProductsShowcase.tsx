@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { MessageCircle, Eye, Star, X } from 'lucide-react';
+import { MessageCircle, Eye, Star, X, Scan } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { products, type Product } from '../data/products';
 
@@ -7,16 +7,21 @@ export type { Product };
 
 interface ProductsShowcaseProps {
   onProductClick: (product: Product) => void;
+  onScanClick: (product: Product) => void;
   selectedBrand: string | null;
   onClearBrand: () => void;
 }
 
-export function ProductsShowcase({ onProductClick, selectedBrand, onClearBrand }: ProductsShowcaseProps) {
+export function ProductsShowcase({ onProductClick, onScanClick, selectedBrand, onClearBrand }: ProductsShowcaseProps) {
   const whatsappNumber = '9952597145';
 
   const handleWhatsAppClick = (product: Product) => {
     const message = `Hi! I'm interested in ${product.name} (${product.specs.ram}/${product.specs.storage}). Price: ₹${product.price.toLocaleString('en-IN')}`;
     window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
+  };
+
+  const handleScanClick = (product: Product) => {
+    onScanClick(product);
   };
 
   const filteredProducts = selectedBrand
@@ -145,16 +150,26 @@ export function ProductsShowcase({ onProductClick, selectedBrand, onClearBrand }
                   <button
                     onClick={() => onProductClick(product)}
                     className="flex-1 flex items-center justify-center gap-2 bg-[#1E3A8A] hover:bg-[#1E40AF] text-white py-2.5 rounded-lg transition-colors"
+                    title="View Details"
                   >
                     <Eye className="w-4 h-4" />
-                    <span style={{ fontSize: '0.875rem', fontWeight: 600 }}>View</span>
+                    <span className="hidden xl:inline" style={{ fontSize: '0.875rem', fontWeight: 600 }}>View</span>
+                  </button>
+                  <button
+                    onClick={() => handleScanClick(product)}
+                    className="flex-1 flex items-center justify-center gap-2 bg-purple-600 hover:bg-purple-700 text-white py-2.5 rounded-lg transition-colors"
+                    title="Browser Scan"
+                  >
+                    <Scan className="w-4 h-4" />
+                    <span className="hidden xl:inline" style={{ fontSize: '0.875rem', fontWeight: 600 }}>Scan</span>
                   </button>
                   <button
                     onClick={() => handleWhatsAppClick(product)}
                     className="flex-1 flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20BA59] text-white py-2.5 rounded-lg transition-colors"
+                    title="Chat on WhatsApp"
                   >
                     <MessageCircle className="w-4 h-4" />
-                    <span style={{ fontSize: '0.875rem', fontWeight: 600 }}>Chat</span>
+                    <span className="hidden xl:inline" style={{ fontSize: '0.875rem', fontWeight: 600 }}>Chat</span>
                   </button>
                 </div>
               </div>

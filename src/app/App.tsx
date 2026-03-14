@@ -10,10 +10,13 @@ import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { ProductDetail } from './components/ProductDetail';
 import { FloatingActions } from './components/FloatingActions';
+import { ProductScanner } from './components/ProductScanner';
+import { AnimatePresence } from 'motion/react';
 
 export default function App() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [selectedBrand, setSelectedBrand] = useState<string | null>(null);
+  const [scanningProduct, setScanningProduct] = useState<Product | null>(null);
 
   if (selectedProduct) {
     return (
@@ -33,6 +36,7 @@ export default function App() {
         <BrandShowcase onBrandClick={setSelectedBrand} />
         <ProductsShowcase
           onProductClick={setSelectedProduct}
+          onScanClick={setScanningProduct}
           selectedBrand={selectedBrand}
           onClearBrand={() => setSelectedBrand(null)}
         />
@@ -43,6 +47,19 @@ export default function App() {
       </main>
       <Footer />
       <FloatingActions />
+      
+      <AnimatePresence>
+        {scanningProduct && (
+          <ProductScanner 
+            product={scanningProduct} 
+            onClose={() => setScanningProduct(null)} 
+            onViewDetails={(p) => {
+              setScanningProduct(null);
+              setSelectedProduct(p);
+            }} 
+          />
+        )}
+      </AnimatePresence>
     </div>
   );
 }
