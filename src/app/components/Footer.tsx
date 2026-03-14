@@ -14,18 +14,14 @@ export function Footer({ onAdminClick }: FooterProps) {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="bg-gradient-to-br from-[#1E3A8A] to-[#3B82F6] p-2 rounded-xl">
-                <Smartphone className="w-6 h-6 text-white" />
+              <div className="bg-gradient-to-br from-[#DC2626] to-[#F97316] p-2 rounded-xl text-white">
+                <Smartphone className="w-6 h-6" />
               </div>
               <div 
-                className="text-white cursor-default select-none group/admin" 
+                className="text-white cursor-default select-none" 
                 style={{ fontSize: '1.25rem', fontWeight: 700 }}
               >
                 Karthik Mobiles
-                <span 
-                  onClick={onAdminClick}
-                  className="inline-block w-1 h-1 ml-1 opacity-0 group-hover/admin:opacity-10 transition-opacity cursor-pointer"
-                >.</span>
               </div>
             </div>
             <p className="text-gray-400 mb-4" style={{ fontSize: '0.875rem', lineHeight: '1.6' }}>

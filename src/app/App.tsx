@@ -55,7 +55,7 @@ export default function App() {
   return (
     <ProductProvider>
       <div className="min-h-screen bg-gray-50">
-        <Header />
+        <Header onAdminClick={() => setShowAdmin(true)} />
         <main>
           <HeroSection />
           <BrandShowcase onBrandClick={setSelectedBrand} />

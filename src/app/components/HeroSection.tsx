@@ -12,7 +12,7 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative bg-gradient-to-br from-[#1E3A8A] via-[#1E40AF] to-[#2563EB] text-white pt-24 md:pt-32 pb-16 md:pb-20 overflow-hidden">
+    <section className="relative bg-gradient-to-br from-[#991B1B] via-[#DC2626] to-[#EF4444] text-white pt-24 md:pt-32 pb-16 md:pb-20 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
@@ -42,7 +42,7 @@ export function HeroSection() {
               }}
               className="inline-block bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6"
             >
-              <span className="text-[#F97316]" style={{ fontWeight: 600 }}>🔥 Hot Deals Available</span>
+              <span className="text-yellow-400" style={{ fontWeight: 600 }}>🔥 Hot Deals Available</span>
             </motion.div>
 
             <motion.h1 
@@ -53,7 +53,7 @@ export function HeroSection() {
               className="text-white mb-4" 
               style={{ fontSize: '2.5rem', fontWeight: 700, lineHeight: '1.2' }}
             >
-              Latest Smartphones at <span className="text-[#F97316]">Karthik Mobiles</span>
+              Latest Smartphones at <span className="text-yellow-400 underline decoration-yellow-400/30 decoration-4 underline-offset-8">Karthik Mobiles</span>
             </motion.h1>
 
             <motion.p
@@ -61,7 +61,7 @@ export function HeroSection() {
                 hidden: { opacity: 0, y: 20 },
                 visible: { opacity: 1, y: 0 }
               }}
-              className="text-blue-100 mb-8"
+              className="text-red-100 mb-8"
               style={{ fontSize: '1.125rem', lineHeight: '1.6' }}
             >
               Explore the newest models from top brands with exclusive offers and authentic warranty
@@ -114,7 +114,7 @@ export function HeroSection() {
                   }}
                 >
                   <div className="text-white mb-1" style={{ fontSize: '1.875rem', fontWeight: 700 }}>{stat.value}</div>
-                  <div className="text-blue-200" style={{ fontSize: '0.875rem' }}>{stat.label}</div>
+                  <div className="text-red-200" style={{ fontSize: '0.875rem' }}>{stat.label}</div>
                 </motion.div>
               ))}
             </motion.div>

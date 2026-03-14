@@ -2,7 +2,11 @@ import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Search, Menu, X, Smartphone, Phone } from 'lucide-react';
 
-export function Header() {
+interface HeaderProps {
+  onAdminClick: () => void;
+}
+
+export function Header({ onAdminClick }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -41,12 +45,12 @@ export function Header() {
             className="flex items-center gap-2 cursor-pointer"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
-            <div className="bg-gradient-to-br from-[#1E3A8A] to-[#3B82F6] p-2 rounded-xl">
+            <div className="bg-gradient-to-br from-[#DC2626] to-[#F97316] p-2 rounded-xl shadow-lg shadow-red-500/20">
               <Smartphone className="w-6 h-6 text-white" />
             </div>
             <div className="hidden sm:block">
-              <div className="text-[#1E3A8A] tracking-tight" style={{ fontSize: '1.25rem', fontWeight: 700 }}>Karthik Mobiles</div>
-              <div className="text-[#F97316] tracking-wide" style={{ fontSize: '0.625rem', fontWeight: 600, marginTop: '-4px' }}>PREMIUM SMARTPHONES</div>
+              <div className="text-[#991B1B] tracking-tight" style={{ fontSize: '1.25rem', fontWeight: 700 }}>Karthik Mobiles</div>
+              <div className="text-[#DC2626] tracking-wide" style={{ fontSize: '0.625rem', fontWeight: 600, marginTop: '-4px' }}>PREMIUM SMARTPHONES</div>
             </div>
           </motion.div>
 
@@ -57,26 +61,27 @@ export function Header() {
               { name: 'Mobiles', id: 'products' },
               { name: 'Brands', id: 'brands' },
               { name: 'Offers', id: 'offers' },
-              { name: 'Contact', id: 'contact' }
+              { name: 'Contact', id: 'contact' },
+              { name: 'Admin', id: 'admin', action: onAdminClick }
             ].map((item) => (
               <button
                 key={item.name}
-                onClick={() => item.id ? scrollToSection(item.id) : window.scrollTo({ top: 0, behavior: 'smooth' })}
-                className="relative text-gray-700 hover:text-[#1E3A8A] transition-colors group py-2"
-                style={{ fontWeight: 500 }}
+                onClick={() => item.action ? item.action() : item.id ? scrollToSection(item.id) : window.scrollTo({ top: 0, behavior: 'smooth' })}
+                className="relative text-gray-700 hover:text-[#DC2626] transition-colors group py-2"
+                style={{ fontWeight: 600 }}
               >
                 {item.name}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#1E3A8A] transition-all duration-300 group-hover:w-full" />
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#DC2626] to-[#F97316] transition-all duration-300 group-hover:w-full" />
               </button>
             ))}
           </nav>
 
           {/* Call Button - Desktop */}
           <motion.a
-            whileHover={{ scale: 1.05, backgroundColor: '#EA580C' }}
+            whileHover={{ scale: 1.05, backgroundColor: '#B91C1C' }}
             whileTap={{ scale: 0.95 }}
             href={`tel:${phoneNumber}`}
-            className="hidden md:flex items-center gap-2 bg-[#F97316] text-white px-6 py-2.5 rounded-lg transition-all shadow-md hover:shadow-lg"
+            className="hidden md:flex items-center gap-2 bg-gradient-to-r from-[#DC2626] to-[#F97316] text-white px-6 py-2.5 rounded-lg transition-all shadow-md hover:shadow-lg shadow-red-500/20"
           >
             <Phone className="w-4 h-4" />
             <span style={{ fontWeight: 600 }}>Call Now</span>
@@ -109,6 +114,9 @@ export function Header() {
               </button>
               <button onClick={() => scrollToSection('contact')} className="text-left py-2 text-gray-700 hover:text-[#1E3A8A]" style={{ fontWeight: 500 }}>
                 Contact
+              </button>
+              <button onClick={onAdminClick} className="text-left py-2 text-[#EF4444] font-bold" style={{ fontWeight: 700 }}>
+                Admin Portal
               </button>
               <a
                 href={`tel:${phoneNumber}`}
