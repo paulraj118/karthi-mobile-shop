@@ -11,7 +11,7 @@ export function ContactSection() {
 
   const phoneNumber = '8925163362';
   const whatsappNumber = '9952597145';
-  const email = 'contact@karthimobiles.com';
+  const email = 'contact@karthikmobiles.com';
 
   const handleCallClick = (e: React.MouseEvent) => {
     e.preventDefault();

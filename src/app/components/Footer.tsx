@@ -14,7 +14,7 @@ export function Footer() {
                 <Smartphone className="w-6 h-6 text-white" />
               </div>
               <div className="text-white" style={{ fontSize: '1.25rem', fontWeight: 700 }}>
-                Karthi Mobiles
+                Karthik Mobiles
               </div>
             </div>
             <p className="text-gray-400 mb-4" style={{ fontSize: '0.875rem', lineHeight: '1.6' }}>
@@ -104,8 +104,8 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="w-5 h-5 text-[#F97316]" />
-                <a href="mailto:contact@karthimobiles.com" className="text-gray-400 hover:text-[#F97316] transition-colors">
-                  contact@karthimobiles.com
+                <a href="mailto:contact@karthikmobiles.com" className="text-gray-400 hover:text-[#F97316] transition-colors">
+                  contact@karthikmobiles.com
                 </a>
               </li>
             </ul>
@@ -116,7 +116,7 @@ export function Footer() {
         <div className="border-t border-gray-800 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-400 text-center md:text-left" style={{ fontSize: '0.875rem' }}>
-              © {currentYear} Karthi Mobiles. All rights reserved.
+              © {currentYear} Karthik Mobiles. All rights reserved.
             </p>
             <div className="flex gap-6">
               <a href="#" className="text-gray-400 hover:text-[#F97316] transition-colors" style={{ fontSize: '0.875rem' }}>

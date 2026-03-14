@@ -53,7 +53,7 @@ export function HeroSection() {
               className="text-white mb-4" 
               style={{ fontSize: '2.5rem', fontWeight: 700, lineHeight: '1.2' }}
             >
-              Latest Smartphones at <span className="text-[#F97316]">Karthi Mobiles</span>
+              Latest Smartphones at <span className="text-[#F97316]">Karthik Mobiles</span>
             </motion.h1>
 
             <motion.p

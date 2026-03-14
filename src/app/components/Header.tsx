@@ -45,7 +45,7 @@ export function Header() {
               <Smartphone className="w-6 h-6 text-white" />
             </div>
             <div className="hidden sm:block">
-              <div className="text-[#1E3A8A] tracking-tight" style={{ fontSize: '1.25rem', fontWeight: 700 }}>Karthi Mobiles</div>
+              <div className="text-[#1E3A8A] tracking-tight" style={{ fontSize: '1.25rem', fontWeight: 700 }}>Karthik Mobiles</div>
               <div className="text-[#F97316] tracking-wide" style={{ fontSize: '0.625rem', fontWeight: 600, marginTop: '-4px' }}>PREMIUM SMARTPHONES</div>
             </div>
           </motion.div>

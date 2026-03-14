@@ -61,7 +61,7 @@ export function ShopLocation() {
                     Store Address
                   </h3>
                   <p className="text-gray-600" style={{ fontSize: '1rem', lineHeight: '1.6' }}>
-                    Karthi Mobiles - Premium Smartphones<br />
+                    Karthik Mobiles - Premium Smartphones<br />
                     Meenambigai Pangala,<br />
                     Virudhunagar, Tamil Nadu 626001
                   </p>
