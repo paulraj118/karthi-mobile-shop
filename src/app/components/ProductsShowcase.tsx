@@ -1,7 +1,9 @@
-import { motion } from 'motion/react';
-import { MessageCircle, Eye, Star, X, Scan } from 'lucide-react';
+import { useState, useMemo } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { MessageCircle, Eye, Star, X, Scan, Search, Filter, SlidersHorizontal, ChevronRight, Heart, ShoppingCart, AlertCircle } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
-import { products, type Product } from '../data/products';
+import type { Product } from '../data/products';
+import { useProducts } from '../context/ProductContext';
 
 export type { Product };
 
@@ -13,6 +15,9 @@ interface ProductsShowcaseProps {
 }
 
 export function ProductsShowcase({ onProductClick, onScanClick, selectedBrand, onClearBrand }: ProductsShowcaseProps) {
+  const { products } = useProducts();
+  const [searchQuery, setSearchQuery] = useState('');
+
   const whatsappNumber = '9952597145';
 
   const handleWhatsAppClick = (product: Product) => {
@@ -24,9 +29,14 @@ export function ProductsShowcase({ onProductClick, onScanClick, selectedBrand, o
     onScanClick(product);
   };
 
-  const filteredProducts = selectedBrand
-    ? products.filter((p) => p.brand === selectedBrand)
-    : products;
+  const filteredProducts = useMemo(() => {
+    return products.filter((product) => {
+      const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                          product.brand.toLowerCase().includes(searchQuery.toLowerCase());
+      const matchesBrand = !selectedBrand || product.brand === selectedBrand;
+      return matchesSearch && matchesBrand;
+    });
+  }, [searchQuery, selectedBrand, products]);
 
   return (
     <section id="products" className="py-16 bg-gray-50">

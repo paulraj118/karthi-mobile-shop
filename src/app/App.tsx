@@ -12,11 +12,16 @@ import { ProductDetail } from './components/ProductDetail';
 import { FloatingActions } from './components/FloatingActions';
 import { ProductScanner } from './components/ProductScanner';
 import { AnimatePresence } from 'motion/react';
+import { ProductProvider } from './context/ProductContext';
+import { AdminLogin } from './components/admin/AdminLogin';
+import { AdminPanel } from './components/admin/AdminPanel';
 
 export default function App() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [selectedBrand, setSelectedBrand] = useState<string | null>(null);
   const [scanningProduct, setScanningProduct] = useState<Product | null>(null);
+  const [showAdmin, setShowAdmin] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   if (selectedProduct) {
     return (
@@ -28,38 +33,59 @@ export default function App() {
     );
   }
 
-  return (
-    <div className="min-h-screen bg-gray-50">
-      <Header />
-      <main>
-        <HeroSection />
-        <BrandShowcase onBrandClick={setSelectedBrand} />
-        <ProductsShowcase
-          onProductClick={setSelectedProduct}
-          onScanClick={setScanningProduct}
-          selectedBrand={selectedBrand}
-          onClearBrand={() => setSelectedBrand(null)}
+  if (showAdmin) {
+    if (!isLoggedIn) {
+      return (
+        <AdminLogin 
+          onLogin={() => setIsLoggedIn(true)} 
+          onBack={() => setShowAdmin(false)} 
         />
-        <FeaturedMobiles onProductClick={setSelectedProduct} />
-        <OffersSection />
-        <ShopLocation />
-        <ContactSection />
-      </main>
-      <Footer />
-      <FloatingActions />
-      
-      <AnimatePresence>
-        {scanningProduct && (
-          <ProductScanner 
-            product={scanningProduct} 
-            onClose={() => setScanningProduct(null)} 
-            onViewDetails={(p) => {
-              setScanningProduct(null);
-              setSelectedProduct(p);
-            }} 
+      );
+    }
+    return (
+      <ProductProvider>
+        <AdminPanel onLogout={() => {
+          setIsLoggedIn(false);
+          setShowAdmin(false);
+        }} />
+      </ProductProvider>
+    );
+  }
+
+  return (
+    <ProductProvider>
+      <div className="min-h-screen bg-gray-50">
+        <Header />
+        <main>
+          <HeroSection />
+          <BrandShowcase onBrandClick={setSelectedBrand} />
+          <ProductsShowcase
+            onProductClick={setSelectedProduct}
+            onScanClick={setScanningProduct}
+            selectedBrand={selectedBrand}
+            onClearBrand={() => setSelectedBrand(null)}
           />
-        )}
-      </AnimatePresence>
-    </div>
+          <FeaturedMobiles onProductClick={setSelectedProduct} />
+          <OffersSection />
+          <ShopLocation />
+          <ContactSection />
+        </main>
+        <Footer onAdminClick={() => setShowAdmin(true)} />
+        <FloatingActions />
+        
+        <AnimatePresence>
+          {scanningProduct && (
+            <ProductScanner 
+              product={scanningProduct} 
+              onClose={() => setScanningProduct(null)} 
+              onViewDetails={(p) => {
+                setScanningProduct(null);
+                setSelectedProduct(p);
+              }} 
+            />
+          )}
+        </AnimatePresence>
+      </div>
+    </ProductProvider>
   );
 }

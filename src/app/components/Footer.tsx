@@ -1,6 +1,10 @@
 import { Smartphone, Facebook, Instagram, Twitter, Youtube, Mail, Phone, MapPin } from 'lucide-react';
 
-export function Footer() {
+interface FooterProps {
+  onAdminClick?: () => void;
+}
+
+export function Footer({ onAdminClick }: FooterProps) {
   const currentYear = new Date().getFullYear();
 
   return (
@@ -13,8 +17,15 @@ export function Footer() {
               <div className="bg-gradient-to-br from-[#1E3A8A] to-[#3B82F6] p-2 rounded-xl">
                 <Smartphone className="w-6 h-6 text-white" />
               </div>
-              <div className="text-white" style={{ fontSize: '1.25rem', fontWeight: 700 }}>
+              <div 
+                className="text-white cursor-default select-none group/admin" 
+                style={{ fontSize: '1.25rem', fontWeight: 700 }}
+              >
                 Karthik Mobiles
+                <span 
+                  onClick={onAdminClick}
+                  className="inline-block w-1 h-1 ml-1 opacity-0 group-hover/admin:opacity-10 transition-opacity cursor-pointer"
+                >.</span>
               </div>
             </div>
             <p className="text-gray-400 mb-4" style={{ fontSize: '0.875rem', lineHeight: '1.6' }}>
